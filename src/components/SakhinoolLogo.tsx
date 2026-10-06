@@ -157,7 +157,6 @@ export default function SakhinoolLogo({
             </span>
             <span className="sakhinool-title-serif">l</span>
           </div>
-          <span className="sakhinool-malayalam-script">സഖിനൂൽ</span>
         </div>
       </div>
     );
