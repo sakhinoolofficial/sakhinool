@@ -141,6 +141,28 @@ export default function SakhinoolLogo({
     );
   }
 
+  if (variant === 'compact') {
+    return (
+      <div className={`sakhinool-compact-brand ${isDark ? 'theme-dark' : 'theme-light'} ${className}`}>
+        <div className="sakhinool-compact-icon">
+          {MonogramSvg}
+        </div>
+        <div className="sakhinool-compact-text">
+          <div className="sakhinool-title-row">
+            <span className="sakhinool-title-serif">Sakhi</span>
+            <span className="sakhinool-title-serif">n</span>
+            <span className="sakhinool-infinity-oo" title="intertwined thread loops">
+              <span className="oo-loop-1">o</span>
+              <span className="oo-loop-2">o</span>
+            </span>
+            <span className="sakhinool-title-serif">l</span>
+          </div>
+          <span className="sakhinool-malayalam-script">സഖിനൂൽ</span>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className={`sakhinool-brand-container ${isDark ? 'theme-dark' : 'theme-light'} ${className}`}>
       {/* Monogram Icon */}

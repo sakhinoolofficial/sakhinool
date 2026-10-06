@@ -125,6 +125,9 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
 }
 
 body {
@@ -132,6 +135,8 @@ body {
   color: var(--text-primary);
   font-family: var(--font-sans);
   overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -141,6 +146,24 @@ body {
 @media (max-width: 768px) {
   body {
     padding-bottom: 74px;
+  }
+}
+
+/* Media element safety */
+img, video {
+  max-width: 100%;
+}
+
+/* Global Responsive Visibility Utilities */
+@media (max-width: 800px) {
+  .desktop-only {
+    display: none !important;
+  }
+}
+
+@media (min-width: 801px) {
+  .mobile-only {
+    display: none !important;
   }
 }
 
@@ -230,11 +253,50 @@ body {
 }
 
 [data-theme='dark'] .sakhinool-title-row,
-.sakhinool-brand-container.theme-dark .sakhinool-title-row {
+.sakhinool-brand-container.theme-dark .sakhinool-title-row,
+.sakhinool-compact-brand.theme-dark .sakhinool-title-row {
   color: var(--color-gold);
   background: var(--gradient-gold-text);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+/* Compact Brand (Navbar & Mobile Header) */
+.sakhinool-compact-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+.sakhinool-compact-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sakhinool-compact-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1;
+}
+
+.sakhinool-compact-brand .sakhinool-title-row {
+  font-size: 1.32rem;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+.sakhinool-malayalam-script {
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: var(--color-gold);
+  letter-spacing: 0.08em;
+  margin-top: 1px;
 }
 
 .sakhinool-title-serif {
