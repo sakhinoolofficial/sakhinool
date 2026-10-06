@@ -1,0 +1,448 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  /* Brand Heritage Forest Green Palette (From Sakhinool Packaging) */
+  --bg-deep-forest: #051910;
+  --bg-card-green: #0a261a;
+  --bg-surface-elevated: #0f3525;
+  --bg-surface-glass: rgba(10, 38, 26, 0.78);
+  --bg-surface-hover: #154531;
+
+  /* Sakhinool Royal Gold Palette */
+  --gold-highlight: #fff2c6;
+  --gold-light: #f3d47c;
+  --gold-primary: #d4af37;
+  --gold-burnished: #b89222;
+  --gold-deep: #7d600d;
+  --gold-glow: rgba(212, 175, 55, 0.28);
+  --gold-glow-strong: rgba(212, 175, 55, 0.55);
+
+  /* Gold Gradients */
+  --gradient-gold: linear-gradient(135deg, #fff2c6 0%, #e5c158 35%, #d4af37 60%, #a47e12 100%);
+  --gradient-gold-text: linear-gradient(135deg, #fff6d9 0%, #ecc866 30%, #d4af37 70%, #9e7912 100%);
+  --gradient-forest-hero: linear-gradient(180deg, rgba(5, 25, 16, 0.95) 0%, rgba(10, 38, 26, 0.85) 60%, rgba(5, 25, 16, 0.98) 100%);
+  --gradient-card-border: linear-gradient(135deg, rgba(212, 175, 55, 0.45) 0%, rgba(212, 175, 55, 0.08) 50%, rgba(212, 175, 55, 0.3) 100%);
+
+  /* Neutrals & Traditional Cream */
+  --cream-pure: #ffffff;
+  --cream-soft: #faf7f0;
+  --cream-muted: #e7dfce;
+  --text-muted: #b1c2b8;
+  --text-dim: #7f998a;
+
+  /* Accents */
+  --accent-crimson: #a62029;
+  --accent-emerald-bright: #10b981;
+  --accent-peacock: #0284c7;
+
+  /* Typography */
+  --font-serif-royal: 'Cinzel', serif;
+  --font-serif-sub: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+  /* Shadows & Glow */
+  --shadow-gold-sm: 0 2px 10px rgba(212, 175, 55, 0.15);
+  --shadow-gold-md: 0 8px 30px rgba(212, 175, 55, 0.22);
+  --shadow-gold-lg: 0 16px 50px rgba(212, 175, 55, 0.32);
+  --shadow-card: 0 12px 36px rgba(0, 0, 0, 0.45);
+}
+
+/* Reset & Global */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--bg-deep-forest);
+  color: var(--cream-soft);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-deep-forest);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--gold-burnished);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-primary);
+}
+
+/* Selection */
+::selection {
+  background: var(--gold-primary);
+  color: var(--bg-deep-forest);
+}
+
+/* Typography Utilities */
+.font-royal {
+  font-family: var(--font-serif-royal);
+  letter-spacing: 0.04em;
+}
+
+.font-editorial {
+  font-family: var(--font-serif-sub);
+}
+
+.text-gold-gradient {
+  background: var(--gradient-gold-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* Brand Logo Styles matching packaging */
+.sakhinool-brand-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+.sakhinool-brand-icon-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sakhinool-brand-container:hover .sakhinool-brand-icon-wrap {
+  transform: translateY(-2px) scale(1.03);
+}
+
+.sakhinool-brand-text-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -6px;
+}
+
+.sakhinool-title-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  font-family: var(--font-serif-royal);
+  font-size: 1.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--gold-primary);
+  background: var(--gradient-gold-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.1;
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+.sakhinool-title-serif {
+  display: inline-block;
+}
+
+/* Interlinked oo representing thread loop */
+.sakhinool-infinity-oo {
+  display: inline-flex;
+  position: relative;
+  letter-spacing: -0.18em;
+  margin: 0 0.08em;
+}
+
+.oo-loop-1, .oo-loop-2 {
+  display: inline-block;
+  font-family: var(--font-serif-royal);
+  transform: scaleY(0.95);
+}
+
+.sakhinool-lotus-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 220px;
+  margin: 4px 0 2px 0;
+}
+
+.sakhinool-lotus-divider .divider-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+}
+
+.sakhinool-tagline {
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  color: var(--gold-light);
+  text-transform: uppercase;
+  margin-top: 1px;
+  opacity: 0.95;
+}
+
+.sakhinool-category-dots {
+  font-family: var(--font-sans);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: var(--gold-burnished);
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+/* Buttons */
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--gradient-gold);
+  color: var(--bg-deep-forest);
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.92rem;
+  letter-spacing: 0.05em;
+  padding: 12px 26px;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.35);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-gold::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.6s ease;
+}
+
+.btn-gold:hover::before {
+  left: 100%;
+}
+
+.btn-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(212, 175, 55, 0.5);
+  filter: brightness(1.05);
+}
+
+.btn-gold:active {
+  transform: translateY(0);
+}
+
+.btn-gold-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(10, 38, 26, 0.5);
+  color: var(--gold-light);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.92rem;
+  letter-spacing: 0.05em;
+  padding: 11px 24px;
+  border-radius: 9999px;
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+
+.btn-gold-outline:hover {
+  background: rgba(212, 175, 55, 0.12);
+  border-color: var(--gold-primary);
+  color: var(--gold-highlight);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.2);
+}
+
+.btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #25d366;
+  color: #032b12;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.92rem;
+  padding: 12px 24px;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  box-shadow: 0 4px 18px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp:hover {
+  background: #2fe06f;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 26px rgba(37, 211, 102, 0.45);
+}
+
+/* Card Styling */
+.sakhinool-card {
+  background: var(--bg-card-green);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.sakhinool-card:hover {
+  border-color: var(--gold-primary);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(212, 175, 55, 0.2);
+  transform: translateY(-6px);
+}
+
+/* Badges */
+.badge-gold {
+  background: rgba(212, 175, 55, 0.15);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  color: var(--gold-light);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.badge-kerala {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(212, 175, 55, 0.2) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  color: #f7e4af;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Kerala Traditional Motif Accents */
+.kasavu-stripe {
+  height: 3px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--gold-primary) 0px,
+    var(--gold-highlight) 6px,
+    var(--gold-burnished) 12px,
+    var(--bg-deep-forest) 13px
+  );
+  width: 100%;
+}
+
+/* Modal Overlay & Drawer */
+.drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(3, 15, 9, 0.75);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  animation: fadeIn 0.25s ease-out;
+}
+
+.drawer-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 480px;
+  background: var(--bg-card-green);
+  border-left: 1px solid rgba(212, 175, 55, 0.3);
+  box-shadow: -10px 0 50px rgba(0, 0, 0, 0.7);
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  animation: slideInRight 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+  }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: 200%;
+  animation: marquee 25s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Responsive Containers */
+.container-custom {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@media (max-width: 768px) {
+  .container-custom {
+    padding: 0 16px;
+  }
+  .sakhinool-title-row {
+    font-size: 1.45rem;
+  }
+  .sakhinool-tagline {
+    font-size: 0.54rem;
+  }
+}
