@@ -43,7 +43,7 @@ export default function WishlistDrawer({
       <aside className="drawer-panel">
         <div className="drawer-header">
           <div className="drawer-title-wrap">
-            <Heart size={20} className="text-gold" fill="#d4af37" />
+            <Heart size={18} className="text-gold" fill="#c59b27" />
             <h3 className="drawer-title font-royal">Your Wishlist</h3>
             <span className="drawer-count-badge">{wishlist.length} Saved</span>
           </div>
@@ -55,10 +55,10 @@ export default function WishlistDrawer({
         <div className="drawer-content">
           {wishlist.length === 0 ? (
             <div className="empty-state">
-              <Heart size={40} className="text-gold" />
+              <Heart size={38} className="text-gold" />
               <h4 className="font-royal">No Saved Sarees Yet</h4>
               <p className="font-editorial">Tap the heart icon on any saree to save it for your celebration.</p>
-              <button type="button" className="btn-gold" onClick={onClose}>
+              <button type="button" className="btn-forest" onClick={onClose}>
                 <span>Discover Sarees</span>
                 <ArrowRight size={16} />
               </button>
@@ -96,7 +96,7 @@ export default function WishlistDrawer({
                           onRemoveWishlist(saree.id);
                         }}
                       >
-                        <ShoppingBag size={14} />
+                        <ShoppingBag size={13} />
                         <span>Move to Bag</span>
                       </button>
 
@@ -105,6 +105,7 @@ export default function WishlistDrawer({
                         className="btn-delete"
                         onClick={() => onRemoveWishlist(saree.id)}
                         title="Remove"
+                        aria-label="Remove item"
                       >
                         <Trash2 size={15} />
                       </button>
@@ -136,9 +137,9 @@ export default function WishlistDrawer({
           display: flex;
           align-items: center;
           justify-content: space-between;
-          padding: 20px 24px;
-          border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-          background: #061e13;
+          padding: 18px 22px;
+          border-bottom: 1px solid var(--border-light);
+          background: var(--bg-surface);
         }
         .drawer-title-wrap {
           display: flex;
@@ -146,28 +147,34 @@ export default function WishlistDrawer({
           gap: 10px;
         }
         .drawer-title {
-          font-size: 1.25rem;
-          color: var(--gold-light);
+          font-size: 1.2rem;
+          color: var(--color-forest);
+        }
+        [data-theme='dark'] .drawer-title {
+          color: var(--text-primary);
         }
         .drawer-count-badge {
-          background: rgba(212, 175, 55, 0.15);
-          border: 1px solid rgba(212, 175, 55, 0.4);
-          color: var(--gold-primary);
+          background: var(--color-forest-surface);
+          border: 1px solid var(--border-light);
+          color: var(--color-forest);
           font-size: 0.72rem;
           font-weight: 700;
           padding: 2px 8px;
           border-radius: 9999px;
         }
+        [data-theme='dark'] .drawer-count-badge {
+          color: var(--color-gold);
+        }
         .drawer-close-btn {
           background: transparent;
           border: none;
-          color: var(--cream-soft);
+          color: var(--text-primary);
           cursor: pointer;
         }
         .drawer-content {
           flex: 1;
           overflow-y: auto;
-          padding: 20px 24px;
+          padding: 18px 20px;
         }
         .empty-state {
           display: flex;
@@ -176,28 +183,40 @@ export default function WishlistDrawer({
           justify-content: center;
           text-align: center;
           height: 100%;
-          gap: 14px;
-          padding: 40px 20px;
+          gap: 12px;
+          padding: 30px 16px;
+        }
+        .empty-state h4 {
+          font-size: 1.25rem;
+          color: var(--color-forest);
+        }
+        [data-theme='dark'] .empty-state h4 {
+          color: var(--text-primary);
+        }
+        .empty-state p {
+          font-size: 0.95rem;
+          color: var(--text-secondary);
+          max-width: 260px;
         }
         .wishlist-list {
           display: flex;
           flex-direction: column;
-          gap: 14px;
+          gap: 12px;
         }
         .wishlist-item-card {
           display: flex;
-          gap: 14px;
-          background: rgba(5, 25, 16, 0.6);
-          border: 1px solid rgba(212, 175, 55, 0.2);
-          padding: 12px;
+          gap: 12px;
+          background: var(--bg-surface);
+          border: 1px solid var(--border-light);
+          padding: 10px;
           border-radius: 12px;
         }
         .wishlist-thumb-wrap {
-          width: 70px;
-          height: 94px;
+          width: 66px;
+          height: 88px;
           border-radius: 8px;
           overflow: hidden;
-          background: #020905;
+          background: #f7f4ed;
           flex-shrink: 0;
         }
         .wishlist-thumb {
@@ -212,58 +231,64 @@ export default function WishlistDrawer({
           justify-content: space-between;
         }
         .wishlist-cat {
-          font-size: 0.7rem;
+          font-size: 0.68rem;
           text-transform: uppercase;
-          color: var(--gold-burnished);
+          color: var(--color-gold);
           font-weight: 700;
         }
         .wishlist-name {
-          font-size: 0.95rem;
-          color: var(--cream-soft);
+          font-size: 0.92rem;
+          color: var(--text-primary);
           margin: 2px 0;
         }
         .wishlist-price {
-          font-size: 1rem;
-          color: var(--gold-primary);
+          font-size: 0.96rem;
+          color: var(--color-forest);
           font-weight: 700;
+        }
+        [data-theme='dark'] .wishlist-price {
+          color: var(--color-gold-bright);
         }
         .wishlist-actions {
           display: flex;
           align-items: center;
-          gap: 10px;
-          margin-top: 6px;
+          gap: 8px;
+          margin-top: 4px;
         }
         .btn-move-bag {
-          background: rgba(212, 175, 55, 0.15);
-          border: 1px solid var(--gold-primary);
-          color: var(--gold-light);
+          background: var(--color-forest-surface);
+          border: 1px solid var(--border-light);
+          color: var(--color-forest);
           padding: 5px 12px;
           border-radius: 6px;
-          font-size: 0.78rem;
+          font-size: 0.76rem;
           font-weight: 600;
           cursor: pointer;
           display: flex;
           align-items: center;
-          gap: 6px;
+          gap: 5px;
           transition: all 0.2s;
         }
+        [data-theme='dark'] .btn-move-bag {
+          color: var(--color-gold-bright);
+        }
         .btn-move-bag:hover {
-          background: var(--gold-primary);
-          color: var(--bg-deep-forest);
+          background: var(--color-forest);
+          color: #ffffff;
         }
         .btn-delete {
           background: transparent;
           border: none;
-          color: var(--text-dim);
+          color: var(--text-muted);
           cursor: pointer;
         }
         .btn-delete:hover {
-          color: #ef4444;
+          color: #dc2626;
         }
         .drawer-footer {
-          padding: 20px 24px;
-          border-top: 1px solid rgba(212, 175, 55, 0.25);
-          background: #061e13;
+          padding: 16px 20px;
+          border-top: 1px solid var(--border-light);
+          background: var(--bg-surface);
         }
       `}</style>
     </>

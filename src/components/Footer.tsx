@@ -39,7 +39,7 @@ export default function Footer() {
         <div className="footer-grid">
           {/* Column 1: Brand Emblem & Identity */}
           <div className="footer-col brand-col">
-            <SakhinoolLogo variant="full" size="md" light />
+            <SakhinoolLogo variant="full" size="md" forceTheme="dark" />
             <p className="footer-bio font-editorial">
               Rooted in Kerala's living heritage, Sakhinool brings the sacred friendship of thread, handloom artisans, and timeless feminine grace together into each handpicked drape.
             </p>

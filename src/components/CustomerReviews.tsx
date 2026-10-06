@@ -1,5 +1,5 @@
 import React from 'react';
-import { Star, MapPin, Quote, Sparkles, CheckCircle2 } from 'lucide-react';
+import { Star, MapPin, Sparkles, CheckCircle2 } from 'lucide-react';
 
 export default function CustomerReviews() {
   const reviews = [
@@ -46,7 +46,7 @@ export default function CustomerReviews() {
       <div className="container-custom">
         <div className="reviews-header">
           <span className="badge-kerala">
-            <Sparkles size={13} />
+            <Sparkles size={13} className="text-gold" />
             <span>VOICES OF OUR SAKHIS</span>
           </span>
           <h2 className="reviews-title font-royal">
@@ -63,11 +63,11 @@ export default function CustomerReviews() {
               <div className="review-top">
                 <div className="stars-row">
                   {[...Array(rev.rating)].map((_, i) => (
-                    <Star key={i} size={15} fill="#d4af37" color="#d4af37" />
+                    <Star key={i} size={15} fill="#c59b27" color="#c59b27" />
                   ))}
                 </div>
                 <span className="verified-pill">
-                  <CheckCircle2 size={12} className="text-emerald" />
+                  <CheckCircle2 size={12} className="text-forest" />
                   <span>Verified Purchase</span>
                 </span>
               </div>
@@ -80,7 +80,7 @@ export default function CustomerReviews() {
                 <div className="customer-meta">
                   <strong className="customer-name font-royal">{rev.name}</strong>
                   <div className="customer-loc">
-                    <MapPin size={12} className="text-gold" />
+                    <MapPin size={12} className="text-forest" />
                     <span>{rev.location}</span>
                   </div>
                 </div>
@@ -95,36 +95,40 @@ export default function CustomerReviews() {
 
       <style jsx>{`
         .reviews-section {
-          padding: 80px 0;
-          background: #04140d;
+          padding: 60px 0;
+          background: var(--bg-secondary);
           position: relative;
+          border-top: 1px solid var(--border-light);
         }
         .reviews-header {
           text-align: center;
-          max-width: 650px;
-          margin: 0 auto 48px auto;
+          max-width: 620px;
+          margin: 0 auto 36px auto;
         }
         .reviews-title {
-          font-size: 2.2rem;
-          color: var(--cream-soft);
-          margin-top: 10px;
-          margin-bottom: 8px;
+          font-size: 2rem;
+          color: var(--color-forest);
+          margin-top: 8px;
+          margin-bottom: 6px;
+        }
+        [data-theme='dark'] .reviews-title {
+          color: var(--text-primary);
         }
         .reviews-subtitle {
-          font-size: 1.08rem;
-          color: var(--cream-muted);
+          font-size: 1.02rem;
+          color: var(--text-secondary);
         }
         .reviews-grid {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
-          gap: 24px;
+          gap: 20px;
         }
         .review-card {
-          padding: 28px;
+          padding: 24px;
           display: flex;
           flex-direction: column;
-          gap: 16px;
-          background: #082317;
+          gap: 14px;
+          background: var(--bg-surface);
         }
         .review-top {
           display: flex;
@@ -133,23 +137,24 @@ export default function CustomerReviews() {
         }
         .stars-row {
           display: flex;
-          gap: 4px;
+          gap: 3px;
         }
         .verified-pill {
           display: flex;
           align-items: center;
           gap: 4px;
-          font-size: 0.72rem;
-          color: #a7f3d0;
-          background: rgba(16, 185, 129, 0.12);
-          border: 1px solid rgba(16, 185, 129, 0.3);
-          padding: 3px 8px;
+          font-size: 0.7rem;
+          color: #15803d;
+          background: var(--color-forest-surface);
+          border: 1px solid rgba(22, 163, 74, 0.25);
+          padding: 2px 7px;
           border-radius: 9999px;
+          font-weight: 600;
         }
         .review-text {
-          font-size: 1.02rem;
-          color: var(--cream-soft);
-          line-height: 1.65;
+          font-size: 0.98rem;
+          color: var(--text-secondary);
+          line-height: 1.6;
           font-style: italic;
         }
         .review-footer {
@@ -157,8 +162,8 @@ export default function CustomerReviews() {
           display: flex;
           align-items: flex-end;
           justify-content: space-between;
-          padding-top: 14px;
-          border-top: 1px solid rgba(212, 175, 55, 0.15);
+          padding-top: 12px;
+          border-top: 1px solid var(--border-light);
         }
         .customer-meta {
           display: flex;
@@ -166,32 +171,39 @@ export default function CustomerReviews() {
           gap: 2px;
         }
         .customer-name {
-          font-size: 0.95rem;
-          color: var(--gold-light);
+          font-size: 0.92rem;
+          color: var(--color-forest);
+        }
+        [data-theme='dark'] .customer-name {
+          color: var(--color-gold-bright);
         }
         .customer-loc {
           display: flex;
           align-items: center;
           gap: 4px;
-          font-size: 0.75rem;
-          color: var(--text-dim);
+          font-size: 0.74rem;
+          color: var(--text-muted);
         }
         .occasion-pill {
-          font-size: 0.72rem;
-          color: var(--gold-primary);
-          background: rgba(212, 175, 55, 0.1);
-          border: 1px solid rgba(212, 175, 55, 0.25);
-          padding: 4px 10px;
+          font-size: 0.7rem;
+          color: var(--color-forest);
+          background: var(--color-forest-surface);
+          border: 1px solid var(--border-light);
+          padding: 3px 8px;
           border-radius: 6px;
           font-weight: 600;
+        }
+        [data-theme='dark'] .occasion-pill {
+          color: var(--color-gold);
         }
 
         @media (max-width: 800px) {
           .reviews-grid {
             grid-template-columns: 1fr;
+            gap: 16px;
           }
           .reviews-title {
-            font-size: 1.85rem;
+            font-size: 1.65rem;
           }
         }
       `}</style>

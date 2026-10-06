@@ -10,22 +10,18 @@ interface HeroProps {
 export default function Hero({ onExploreClick }: HeroProps) {
   return (
     <section className="hero-section">
-      {/* Background Subtle Gradient & Glow */}
-      <div className="hero-ambient-glow glow-1" />
-      <div className="hero-ambient-glow glow-2" />
-
       <div className="container-custom hero-container">
         {/* Left Column: Brand Story & Call to Action */}
         <div className="hero-content">
           <div className="hero-badge-wrap">
             <span className="badge-kerala">
-              <Sparkles size={13} />
+              <Sparkles size={13} className="text-gold" />
               <span>HANDLOOMS OF GOD’S OWN COUNTRY</span>
             </span>
           </div>
 
           <div className="hero-logo-showcase">
-            <SakhinoolLogo variant="full" size="md" light />
+            <SakhinoolLogo variant="full" size="md" />
           </div>
 
           <h1 className="hero-headline font-royal">
@@ -41,10 +37,10 @@ export default function Hero({ onExploreClick }: HeroProps) {
             <button 
               type="button" 
               onClick={onExploreClick}
-              className="btn-gold"
+              className="btn-forest"
             >
               <span>Explore Curated Sarees</span>
-              <ArrowRight size={17} />
+              <ArrowRight size={16} />
             </button>
 
             <a 
@@ -53,7 +49,7 @@ export default function Hero({ onExploreClick }: HeroProps) {
               rel="noopener noreferrer"
               className="btn-whatsapp"
             >
-              <MessageCircle size={18} />
+              <MessageCircle size={17} />
               <span>WhatsApp Stylist</span>
             </a>
           </div>
@@ -61,7 +57,7 @@ export default function Hero({ onExploreClick }: HeroProps) {
           {/* 4 Trust Value Pillars */}
           <div className="hero-pillars-grid">
             <div className="pillar-item">
-              <div className="pillar-icon"><Award size={18} /></div>
+              <div className="pillar-icon"><Award size={17} /></div>
               <div className="pillar-info">
                 <strong>Silk Mark Certified</strong>
                 <span>Pure handlooms &amp; tested zari</span>
@@ -69,7 +65,7 @@ export default function Hero({ onExploreClick }: HeroProps) {
             </div>
 
             <div className="pillar-item">
-              <div className="pillar-icon"><Truck size={18} /></div>
+              <div className="pillar-icon"><Truck size={17} /></div>
               <div className="pillar-info">
                 <strong>All 14 Districts</strong>
                 <span>Express delivery across Kerala</span>
@@ -77,7 +73,7 @@ export default function Hero({ onExploreClick }: HeroProps) {
             </div>
 
             <div className="pillar-item">
-              <div className="pillar-icon"><Gift size={18} /></div>
+              <div className="pillar-icon"><Gift size={17} /></div>
               <div className="pillar-info">
                 <strong>Signature Packaging</strong>
                 <span>Emerald green &amp; gold keepsake</span>
@@ -85,7 +81,7 @@ export default function Hero({ onExploreClick }: HeroProps) {
             </div>
 
             <div className="pillar-item">
-              <div className="pillar-icon"><ShieldCheck size={18} /></div>
+              <div className="pillar-icon"><ShieldCheck size={17} /></div>
               <div className="pillar-info">
                 <strong>Direct Artisan Sourcing</strong>
                 <span>Fair trade with master weavers</span>
@@ -110,9 +106,9 @@ export default function Hero({ onExploreClick }: HeroProps) {
               
               {/* Floating Highlight Tag */}
               <div className="floating-highlight-badge">
-                <span className="live-sparkle">✦</span>
+                <span className="live-sparkle text-gold">✦</span>
                 <div>
-                  <div className="fl-title">Signature Edition</div>
+                  <div className="fl-title font-royal">Signature Edition</div>
                   <div className="fl-desc">Deep Forest Silk • 24K Gold Zari</div>
                 </div>
               </div>
@@ -130,41 +126,23 @@ export default function Hero({ onExploreClick }: HeroProps) {
       <style jsx>{`
         .hero-section {
           position: relative;
-          background: radial-gradient(circle at 50% 10%, #0d3424 0%, var(--bg-deep-forest) 75%);
-          padding: 40px 0 60px 0;
+          background: var(--gradient-hero-light);
+          padding: 36px 0 54px 0;
           overflow: hidden;
-        }
-        .hero-ambient-glow {
-          position: absolute;
-          width: 500px;
-          height: 500px;
-          border-radius: 50%;
-          filter: blur(120px);
-          pointer-events: none;
-          z-index: 0;
-        }
-        .glow-1 {
-          background: rgba(212, 175, 55, 0.12);
-          top: -100px;
-          left: 10%;
-        }
-        .glow-2 {
-          background: rgba(16, 185, 129, 0.1);
-          bottom: 0;
-          right: 5%;
+          transition: background 0.3s ease;
         }
         .hero-container {
           position: relative;
           z-index: 1;
           display: grid;
           grid-template-columns: 1.15fr 0.95fr;
-          gap: 48px;
+          gap: 40px;
           align-items: center;
         }
         .hero-content {
           display: flex;
           flex-direction: column;
-          gap: 20px;
+          gap: 18px;
         }
         .hero-badge-wrap {
           display: flex;
@@ -175,32 +153,35 @@ export default function Hero({ onExploreClick }: HeroProps) {
           margin-bottom: -5px;
         }
         .hero-headline {
-          font-size: 2.75rem;
-          line-height: 1.18;
-          color: var(--cream-soft);
+          font-size: 2.5rem;
+          line-height: 1.2;
+          color: var(--color-forest);
           font-weight: 700;
         }
+        [data-theme='dark'] .hero-headline {
+          color: var(--text-primary);
+        }
         .hero-description {
-          font-size: 1.15rem;
-          color: var(--cream-muted);
+          font-size: 1.12rem;
+          color: var(--text-secondary);
           line-height: 1.65;
           font-weight: 400;
-          max-width: 600px;
+          max-width: 580px;
         }
         .hero-cta-group {
           display: flex;
           align-items: center;
-          gap: 16px;
+          gap: 14px;
           flex-wrap: wrap;
-          margin-top: 10px;
+          margin-top: 6px;
         }
         .hero-pillars-grid {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
-          gap: 16px;
-          margin-top: 18px;
-          padding-top: 24px;
-          border-top: 1px solid rgba(212, 175, 55, 0.2);
+          gap: 14px;
+          margin-top: 14px;
+          padding-top: 20px;
+          border-top: 1px solid var(--border-light);
         }
         .pillar-item {
           display: flex;
@@ -208,9 +189,9 @@ export default function Hero({ onExploreClick }: HeroProps) {
           gap: 10px;
         }
         .pillar-icon {
-          color: var(--gold-primary);
-          background: rgba(212, 175, 55, 0.12);
-          border: 1px solid rgba(212, 175, 55, 0.3);
+          color: var(--color-forest);
+          background: var(--color-gold-surface);
+          border: 1px solid var(--border-gold);
           width: 34px;
           height: 34px;
           border-radius: 8px;
@@ -219,17 +200,20 @@ export default function Hero({ onExploreClick }: HeroProps) {
           justify-content: center;
           flex-shrink: 0;
         }
+        [data-theme='dark'] .pillar-icon {
+          color: var(--color-gold);
+        }
         .pillar-info {
           display: flex;
           flex-direction: column;
         }
         .pillar-info strong {
-          color: var(--cream-soft);
+          color: var(--text-primary);
           font-size: 0.85rem;
           font-weight: 600;
         }
         .pillar-info span {
-          color: var(--text-dim);
+          color: var(--text-muted);
           font-size: 0.74rem;
         }
         .hero-visual-card {
@@ -237,16 +221,16 @@ export default function Hero({ onExploreClick }: HeroProps) {
         }
         .visual-card-inner {
           position: relative;
-          background: linear-gradient(135deg, rgba(212, 175, 55, 0.35) 0%, rgba(10, 38, 26, 0.5) 100%);
-          padding: 6px;
-          border-radius: 24px;
-          box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.8), 0 0 35px rgba(212, 175, 55, 0.2);
+          background: linear-gradient(135deg, var(--color-gold) 0%, rgba(12, 54, 36, 0.4) 100%);
+          padding: 4px;
+          border-radius: 20px;
+          box-shadow: var(--shadow-card);
         }
         .image-frame {
           position: relative;
-          border-radius: 20px;
+          border-radius: 17px;
           overflow: hidden;
-          background: #000;
+          background: #f0f0f0;
           aspect-ratio: 4/5;
         }
         .hero-model-img {
@@ -254,7 +238,7 @@ export default function Hero({ onExploreClick }: HeroProps) {
           height: 100%;
           object-fit: cover;
           display: block;
-          transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+          transition: transform 0.6s ease;
         }
         .image-frame:hover .hero-model-img {
           transform: scale(1.03);
@@ -262,66 +246,74 @@ export default function Hero({ onExploreClick }: HeroProps) {
         .image-overlay-vignette {
           position: absolute;
           inset: 0;
-          background: linear-gradient(to top, rgba(5, 25, 16, 0.8) 0%, rgba(5, 25, 16, 0) 50%, rgba(5, 25, 16, 0.4) 100%);
+          background: linear-gradient(to top, rgba(7, 33, 21, 0.7) 0%, transparent 50%, rgba(7, 33, 21, 0.2) 100%);
           pointer-events: none;
         }
         .floating-highlight-badge {
           position: absolute;
-          bottom: 24px;
-          left: 20px;
-          background: rgba(10, 38, 26, 0.85);
-          backdrop-filter: blur(12px);
-          border: 1px solid rgba(212, 175, 55, 0.4);
-          padding: 10px 16px;
-          border-radius: 12px;
+          bottom: 16px;
+          left: 16px;
+          background: rgba(255, 255, 255, 0.92);
+          backdrop-filter: blur(10px);
+          border: 1px solid var(--border-gold);
+          padding: 8px 14px;
+          border-radius: 10px;
           display: flex;
           align-items: center;
-          gap: 12px;
-          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+          gap: 10px;
+          box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+        }
+        [data-theme='dark'] .floating-highlight-badge {
+          background: rgba(10, 38, 26, 0.9);
         }
         .live-sparkle {
-          color: var(--gold-primary);
-          font-size: 1.2rem;
+          font-size: 1.1rem;
         }
         .fl-title {
-          font-family: var(--font-serif-royal);
-          font-size: 0.86rem;
-          color: var(--gold-light);
+          font-size: 0.84rem;
+          color: var(--color-forest);
           font-weight: 700;
         }
+        [data-theme='dark'] .fl-title {
+          color: var(--color-gold-bright);
+        }
         .fl-desc {
-          font-size: 0.72rem;
-          color: var(--cream-soft);
-          opacity: 0.9;
+          font-size: 0.7rem;
+          color: var(--text-secondary);
         }
         .floating-kerala-tag {
           position: absolute;
-          top: 20px;
-          right: 20px;
-          background: rgba(5, 25, 16, 0.82);
-          backdrop-filter: blur(10px);
-          border: 1px solid rgba(16, 185, 129, 0.5);
-          color: #a7f3d0;
+          top: 16px;
+          right: 16px;
+          background: rgba(255, 255, 255, 0.92);
+          backdrop-filter: blur(8px);
+          border: 1px solid rgba(22, 163, 74, 0.4);
+          color: #15803d;
           font-size: 0.72rem;
           font-weight: 600;
-          padding: 6px 12px;
+          padding: 5px 10px;
           border-radius: 9999px;
           display: flex;
           align-items: center;
           gap: 6px;
         }
+        [data-theme='dark'] .floating-kerala-tag {
+          background: rgba(5, 25, 16, 0.85);
+          color: #86efac;
+        }
         .dot-pulse {
           width: 7px;
           height: 7px;
           border-radius: 50%;
-          background: #34d399;
-          box-shadow: 0 0 8px #34d399;
+          background: #22c55e;
+          box-shadow: 0 0 6px #22c55e;
         }
 
-        @media (max-width: 1024px) {
+        @media (max-width: 900px) {
           .hero-container {
             grid-template-columns: 1fr;
             text-align: center;
+            gap: 28px;
           }
           .hero-content {
             align-items: center;
@@ -330,22 +322,23 @@ export default function Hero({ onExploreClick }: HeroProps) {
             justify-content: center;
           }
           .hero-headline {
-            font-size: 2.1rem;
+            font-size: 1.85rem;
+          }
+          .hero-description {
+            font-size: 0.98rem;
           }
           .hero-cta-group {
             justify-content: center;
+            width: 100%;
+          }
+          .hero-cta-group .btn-forest,
+          .hero-cta-group .btn-whatsapp {
+            flex: 1;
+            min-width: 140px;
           }
           .hero-pillars-grid {
             text-align: left;
-          }
-        }
-
-        @media (max-width: 640px) {
-          .hero-headline {
-            font-size: 1.75rem;
-          }
-          .hero-pillars-grid {
-            grid-template-columns: 1fr;
+            width: 100%;
           }
         }
       `}</style>

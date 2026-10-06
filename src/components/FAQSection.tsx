@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { ChevronDown, HelpCircle, Sparkles, MessageCircle } from 'lucide-react';
+import { ChevronDown, Sparkles, MessageCircle } from 'lucide-react';
 
 export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -61,7 +61,7 @@ export default function FAQSection() {
                 <button type="button" className="faq-question-btn">
                   <span className="faq-q-text font-royal">{faq.question}</span>
                   <span className={`faq-icon ${isOpen ? 'rotate' : ''}`}>
-                    <ChevronDown size={18} />
+                    <ChevronDown size={17} />
                   </span>
                 </button>
                 {isOpen && (
@@ -86,7 +86,7 @@ export default function FAQSection() {
             rel="noopener noreferrer"
             className="btn-whatsapp"
           >
-            <MessageCircle size={18} />
+            <MessageCircle size={17} />
             <span>Chat on WhatsApp: +91 7306045546</span>
           </a>
         </div>
@@ -94,53 +94,59 @@ export default function FAQSection() {
 
       <style jsx>{`
         .faq-section {
-          padding: 80px 0;
-          background: #051910;
+          padding: 60px 0;
+          background: var(--bg-primary);
           position: relative;
         }
         .faq-header {
           text-align: center;
-          max-width: 650px;
-          margin: 0 auto 48px auto;
+          max-width: 620px;
+          margin: 0 auto 36px auto;
         }
         .faq-title {
-          font-size: 2.2rem;
-          color: var(--cream-soft);
-          margin-top: 10px;
-          margin-bottom: 8px;
+          font-size: 2rem;
+          color: var(--color-forest);
+          margin-top: 8px;
+          margin-bottom: 6px;
+        }
+        [data-theme='dark'] .faq-title {
+          color: var(--text-primary);
         }
         .faq-subtitle {
-          font-size: 1.08rem;
-          color: var(--cream-muted);
+          font-size: 1.02rem;
+          color: var(--text-secondary);
         }
         .faq-accordion-wrap {
-          max-width: 860px;
+          max-width: 820px;
           margin: 0 auto;
           display: flex;
           flex-direction: column;
-          gap: 12px;
+          gap: 10px;
         }
         .faq-item {
-          background: #09261a;
-          border: 1px solid rgba(212, 175, 55, 0.2);
+          background: var(--bg-surface);
+          border: 1px solid var(--border-light);
           border-radius: 12px;
           overflow: hidden;
-          transition: all 0.25s ease;
+          transition: all 0.2s ease;
           cursor: pointer;
         }
         .faq-item:hover {
-          border-color: rgba(212, 175, 55, 0.4);
+          border-color: var(--color-gold);
         }
         .faq-item.active {
-          border-color: var(--gold-primary);
-          background: #0c3022;
-          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+          border-color: var(--color-forest);
+          background: var(--bg-surface);
+          box-shadow: var(--shadow-sm);
+        }
+        [data-theme='dark'] .faq-item.active {
+          border-color: var(--color-gold);
         }
         .faq-question-btn {
           width: 100%;
           background: transparent;
           border: none;
-          padding: 18px 24px;
+          padding: 16px 20px;
           display: flex;
           align-items: center;
           justify-content: space-between;
@@ -148,13 +154,16 @@ export default function FAQSection() {
           cursor: pointer;
         }
         .faq-q-text {
-          font-size: 1.05rem;
-          color: var(--cream-soft);
+          font-size: 0.98rem;
+          color: var(--color-forest);
           font-weight: 600;
         }
+        [data-theme='dark'] .faq-q-text {
+          color: var(--text-primary);
+        }
         .faq-icon {
-          color: var(--gold-primary);
-          transition: transform 0.3s ease;
+          color: var(--color-gold);
+          transition: transform 0.25s ease;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -163,41 +172,43 @@ export default function FAQSection() {
           transform: rotate(180deg);
         }
         .faq-answer {
-          padding: 0 24px 20px 24px;
-          font-size: 1.02rem;
-          color: var(--cream-muted);
-          line-height: 1.65;
-          animation: fadeIn 0.2s ease-out;
+          padding: 0 20px 18px 20px;
+          font-size: 0.95rem;
+          color: var(--text-secondary);
+          line-height: 1.6;
         }
         .faq-help-box {
-          max-width: 860px;
-          margin: 48px auto 0 auto;
-          background: linear-gradient(135deg, rgba(10, 38, 26, 0.9) 0%, rgba(5, 25, 16, 0.95) 100%);
-          border: 1px solid rgba(212, 175, 55, 0.35);
-          padding: 24px 32px;
-          border-radius: 16px;
+          max-width: 820px;
+          margin: 40px auto 0 auto;
+          background: var(--bg-secondary);
+          border: 1px solid var(--border-gold);
+          padding: 22px 28px;
+          border-radius: 14px;
           display: flex;
           align-items: center;
           justify-content: space-between;
-          gap: 20px;
+          gap: 16px;
           flex-wrap: wrap;
         }
         .help-text-group h4 {
-          font-size: 1.15rem;
-          color: var(--gold-light);
-          margin-bottom: 4px;
+          font-size: 1.1rem;
+          color: var(--color-forest);
+          margin-bottom: 2px;
+        }
+        [data-theme='dark'] .help-text-group h4 {
+          color: var(--color-gold-bright);
         }
         .help-text-group p {
-          font-size: 0.95rem;
-          color: var(--cream-muted);
+          font-size: 0.92rem;
+          color: var(--text-muted);
         }
 
         @media (max-width: 700px) {
           .faq-title {
-            font-size: 1.85rem;
+            font-size: 1.65rem;
           }
           .faq-q-text {
-            font-size: 0.95rem;
+            font-size: 0.92rem;
           }
           .faq-help-box {
             flex-direction: column;

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Sparkles, Check, ArrowDown, HelpCircle, HeartHandshake } from 'lucide-react';
+import { Sparkles, Check, ArrowDown } from 'lucide-react';
 import { Saree } from '../data/sarees';
 
 interface SareeMatcherProps {
@@ -31,8 +31,8 @@ export default function SareeMatcher({ onMatchFilter, sarees }: SareeMatcherProp
 
   const budgetOptions = [
     { max: 7000, label: 'Under ₹7,000 (Kasavu & Organza)' },
-    { max: 12000, label: 'Under ₹12,000 (Tissue & Festive Silk)' },
-    { max: 25000, label: 'All Budgets (Up to Luxury Heirlooms)' },
+    { max: 12000, label: 'Under ₹12,000 (Tissue & Festive)' },
+    { max: 25000, label: 'All Budgets (Up to Heirlooms)' },
   ];
 
   // Calculate live matching saree count
@@ -57,14 +57,14 @@ export default function SareeMatcher({ onMatchFilter, sarees }: SareeMatcherProp
         <div className="matcher-card">
           <div className="matcher-header">
             <span className="badge-gold">
-              <Sparkles size={14} />
+              <Sparkles size={13} />
               <span>INTERACTIVE STYLIST ASSISTANT</span>
             </span>
             <h2 className="matcher-title font-royal">
               Find Your <span className="text-gold-gradient">Soul Saree</span> in 3 Clicks
             </h2>
             <p className="matcher-subtitle font-editorial">
-              Whether you are preparing for a Guruvayur wedding, a family Onam sadhya, or a modern cocktail in Kochi, our Sakhinool Drape Guide matches you with the ideal weave.
+              Whether you are preparing for a Guruvayur wedding, an Onam sadhya, or an evening party in Kochi, our guide matches your ideal weave.
             </p>
           </div>
 
@@ -136,17 +136,17 @@ export default function SareeMatcher({ onMatchFilter, sarees }: SareeMatcherProp
           {/* Action Row */}
           <div className="matcher-footer">
             <div className="matches-preview">
-              <span className="match-num">{matchingCount}</span>
+              <span className="match-num font-royal">{matchingCount}</span>
               <span className="match-text">Handcrafted Sarees Match Your Preference</span>
             </div>
 
             <button
               type="button"
-              className="btn-gold"
+              className="btn-forest"
               onClick={handleApply}
             >
               <span>View Matching Sarees</span>
-              <ArrowDown size={17} />
+              <ArrowDown size={16} />
             </button>
           </div>
         </div>
@@ -154,15 +154,15 @@ export default function SareeMatcher({ onMatchFilter, sarees }: SareeMatcherProp
 
       <style jsx>{`
         .saree-matcher-section {
-          padding: 30px 0;
+          padding: 24px 0;
           position: relative;
         }
         .matcher-card {
-          background: linear-gradient(180deg, #09261a 0%, #051910 100%);
-          border: 1px solid rgba(212, 175, 55, 0.35);
-          border-radius: 24px;
-          padding: 36px 40px;
-          box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(212, 175, 55, 0.2);
+          background: var(--bg-surface);
+          border: 1px solid var(--border-gold);
+          border-radius: 20px;
+          padding: 32px 36px;
+          box-shadow: var(--shadow-card);
           position: relative;
           overflow: hidden;
         }
@@ -177,65 +177,75 @@ export default function SareeMatcher({ onMatchFilter, sarees }: SareeMatcherProp
         }
         .matcher-header {
           text-align: center;
-          max-width: 680px;
-          margin: 0 auto 32px auto;
+          max-width: 620px;
+          margin: 0 auto 28px auto;
         }
         .matcher-title {
-          font-size: 2rem;
-          color: var(--cream-soft);
-          margin-top: 10px;
-          margin-bottom: 8px;
+          font-size: 1.85rem;
+          color: var(--color-forest);
+          margin-top: 8px;
+          margin-bottom: 6px;
+        }
+        [data-theme='dark'] .matcher-title {
+          color: var(--text-primary);
         }
         .matcher-subtitle {
-          font-size: 1.05rem;
-          color: var(--cream-muted);
+          font-size: 1rem;
+          color: var(--text-secondary);
         }
         .matcher-grid {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
-          gap: 28px;
-          margin-bottom: 32px;
+          gap: 24px;
+          margin-bottom: 28px;
         }
         .step-column {
           display: flex;
           flex-direction: column;
-          gap: 14px;
+          gap: 10px;
         }
         .step-label {
           display: flex;
           align-items: center;
-          gap: 10px;
+          gap: 8px;
           font-family: var(--font-serif-royal);
-          font-size: 0.92rem;
-          color: var(--gold-light);
+          font-size: 0.88rem;
+          color: var(--color-forest);
           font-weight: 700;
-          letter-spacing: 0.05em;
+          letter-spacing: 0.04em;
+        }
+        [data-theme='dark'] .step-label {
+          color: var(--color-gold-bright);
         }
         .step-number {
-          background: var(--gold-primary);
-          color: var(--bg-deep-forest);
-          width: 22px;
-          height: 22px;
+          background: var(--color-forest);
+          color: #ffffff;
+          width: 20px;
+          height: 20px;
           border-radius: 50%;
           display: flex;
           align-items: center;
           justify-content: center;
-          font-size: 0.75rem;
+          font-size: 0.7rem;
           font-weight: 800;
+        }
+        [data-theme='dark'] .step-number {
+          background: var(--color-gold);
+          color: #051910;
         }
         .pill-options {
           display: flex;
           flex-direction: column;
-          gap: 8px;
+          gap: 7px;
         }
         .pill-btn {
-          background: rgba(10, 38, 26, 0.7);
-          border: 1px solid rgba(212, 175, 55, 0.2);
-          color: var(--cream-soft);
-          padding: 10px 14px;
-          border-radius: 10px;
+          background: var(--bg-surface);
+          border: 1px solid var(--border-light);
+          color: var(--text-secondary);
+          padding: 9px 12px;
+          border-radius: 9px;
           cursor: pointer;
-          font-size: 0.84rem;
+          font-size: 0.82rem;
           display: flex;
           align-items: center;
           justify-content: space-between;
@@ -243,55 +253,70 @@ export default function SareeMatcher({ onMatchFilter, sarees }: SareeMatcherProp
           text-align: left;
         }
         .pill-btn:hover {
-          background: rgba(212, 175, 55, 0.1);
-          border-color: rgba(212, 175, 55, 0.4);
-          transform: translateX(2px);
+          background: var(--color-forest-surface);
+          border-color: var(--color-forest);
+          color: var(--color-forest);
         }
         .pill-btn.active {
-          background: linear-gradient(135deg, rgba(212, 175, 55, 0.25) 0%, rgba(10, 38, 26, 0.9) 100%);
-          border-color: var(--gold-primary);
-          color: #fff;
+          background: var(--color-forest);
+          border-color: var(--color-forest);
+          color: #ffffff;
           font-weight: 600;
-          box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+          box-shadow: 0 4px 14px rgba(12, 54, 36, 0.2);
+        }
+        [data-theme='dark'] .pill-btn.active {
+          background: var(--color-forest);
+          border-color: var(--color-gold);
+          color: #ffffff;
         }
         .check-icon {
-          color: var(--gold-primary);
+          color: var(--color-gold);
         }
         .matcher-footer {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          padding-top: 24px;
-          border-top: 1px solid rgba(212, 175, 55, 0.2);
+          padding-top: 20px;
+          border-top: 1px solid var(--border-light);
           flex-wrap: wrap;
-          gap: 16px;
+          gap: 14px;
         }
         .matches-preview {
           display: flex;
           align-items: center;
-          gap: 10px;
+          gap: 8px;
         }
         .match-num {
-          font-family: var(--font-serif-royal);
-          font-size: 1.8rem;
-          color: var(--gold-primary);
+          font-size: 1.7rem;
+          color: var(--color-forest);
           font-weight: 800;
         }
+        [data-theme='dark'] .match-num {
+          color: var(--color-gold-bright);
+        }
         .match-text {
-          color: var(--cream-muted);
-          font-size: 0.92rem;
+          color: var(--text-muted);
+          font-size: 0.88rem;
         }
 
         @media (max-width: 900px) {
           .matcher-grid {
             grid-template-columns: 1fr;
+            gap: 18px;
           }
           .matcher-card {
-            padding: 24px 20px;
+            padding: 22px 18px;
           }
           .matcher-footer {
             flex-direction: column;
             text-align: center;
+            width: 100%;
+          }
+          .matches-preview {
+            justify-content: center;
+          }
+          .matcher-footer .btn-forest {
+            width: 100%;
           }
         }
       `}</style>

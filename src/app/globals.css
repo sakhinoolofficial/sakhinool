@@ -1,50 +1,119 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-  /* Brand Heritage Forest Green Palette (From Sakhinool Packaging) */
-  --bg-deep-forest: #051910;
-  --bg-card-green: #0a261a;
-  --bg-surface-elevated: #0f3525;
-  --bg-surface-glass: rgba(10, 38, 26, 0.78);
-  --bg-surface-hover: #154531;
+  /* ====================================================
+     DEFAULT: LUXURY LIGHT THEME (White + Forest Green + Gold)
+     ==================================================== */
+  --bg-primary: #ffffff;
+  --bg-secondary: #fbf9f5;
+  --bg-tertiary: #f4efe6;
+  --bg-surface: #ffffff;
+  --bg-surface-elevated: #ffffff;
+  --bg-surface-glass: rgba(255, 255, 255, 0.92);
+  --bg-surface-hover: #f7f4ed;
+  --bg-subtle-green: #eef5f1;
 
-  /* Sakhinool Royal Gold Palette */
-  --gold-highlight: #fff2c6;
-  --gold-light: #f3d47c;
-  --gold-primary: #d4af37;
-  --gold-burnished: #b89222;
-  --gold-deep: #7d600d;
-  --gold-glow: rgba(212, 175, 55, 0.28);
-  --gold-glow-strong: rgba(212, 175, 55, 0.55);
+  /* Secondary: Heritage Forest Green Palette */
+  --color-forest: #0c3624;
+  --color-forest-dark: #072216;
+  --color-forest-light: #185238;
+  --color-forest-muted: #2d4c3d;
+  --color-forest-surface: rgba(12, 54, 36, 0.06);
 
-  /* Gold Gradients */
-  --gradient-gold: linear-gradient(135deg, #fff2c6 0%, #e5c158 35%, #d4af37 60%, #a47e12 100%);
-  --gradient-gold-text: linear-gradient(135deg, #fff6d9 0%, #ecc866 30%, #d4af37 70%, #9e7912 100%);
-  --gradient-forest-hero: linear-gradient(180deg, rgba(5, 25, 16, 0.95) 0%, rgba(10, 38, 26, 0.85) 60%, rgba(5, 25, 16, 0.98) 100%);
-  --gradient-card-border: linear-gradient(135deg, rgba(212, 175, 55, 0.45) 0%, rgba(212, 175, 55, 0.08) 50%, rgba(212, 175, 55, 0.3) 100%);
+  /* Secondary: Royal Gold & Zari Palette */
+  --color-gold: #c59b27;
+  --color-gold-bright: #d4af37;
+  --color-gold-dark: #99730d;
+  --color-gold-light: #eccd73;
+  --color-gold-surface: rgba(197, 155, 39, 0.08);
+  --color-gold-glow: rgba(197, 155, 39, 0.2);
 
-  /* Neutrals & Traditional Cream */
-  --cream-pure: #ffffff;
-  --cream-soft: #faf7f0;
-  --cream-muted: #e7dfce;
-  --text-muted: #b1c2b8;
-  --text-dim: #7f998a;
+  /* Gradients */
+  --gradient-gold: linear-gradient(135deg, #e8c86d 0%, #c59b27 50%, #99730d 100%);
+  --gradient-gold-text: linear-gradient(135deg, #a87e14 0%, #c59b27 45%, #7a5905 100%);
+  --gradient-forest: linear-gradient(135deg, #072216 0%, #0c3624 60%, #185238 100%);
+  --gradient-hero-light: radial-gradient(circle at 50% 10%, #f7f4ec 0%, #ffffff 75%);
 
-  /* Accents */
-  --accent-crimson: #a62029;
-  --accent-emerald-bright: #10b981;
-  --accent-peacock: #0284c7;
+  /* Text & Readability */
+  --text-primary: #082115;
+  --text-secondary: #273830;
+  --text-muted: #576d62;
+  --text-dim: #7f948a;
+  --text-on-dark: #faf8f5;
+
+  /* Borders & Dividers */
+  --border-light: rgba(12, 54, 36, 0.12);
+  --border-gold: rgba(197, 155, 39, 0.35);
+  --border-card: rgba(12, 54, 36, 0.1);
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(12, 54, 36, 0.05);
+  --shadow-card: 0 4px 20px rgba(12, 54, 36, 0.07);
+  --shadow-card-hover: 0 14px 34px rgba(12, 54, 36, 0.14), 0 0 15px rgba(197, 155, 39, 0.15);
+  --shadow-drawer: -10px 0 40px rgba(0, 0, 0, 0.15);
+
+  /* Helper / Footer Dark Section Tokens */
+  --cream-soft: #faf8f5;
+  --cream-muted: #c8d8ce;
+  --gold-primary: #c59b27;
+  --gold-light: #eccd73;
 
   /* Typography */
   --font-serif-royal: 'Cinzel', serif;
   --font-serif-sub: 'Cormorant Garamond', Georgia, serif;
   --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
 
-  /* Shadows & Glow */
-  --shadow-gold-sm: 0 2px 10px rgba(212, 175, 55, 0.15);
-  --shadow-gold-md: 0 8px 30px rgba(212, 175, 55, 0.22);
-  --shadow-gold-lg: 0 16px 50px rgba(212, 175, 55, 0.32);
-  --shadow-card: 0 12px 36px rgba(0, 0, 0, 0.45);
+/* ====================================================
+   DARK THEME OVERRIDE (For users who prefer dark mode)
+   ==================================================== */
+[data-theme='dark'] {
+  --bg-primary: #051910;
+  --bg-secondary: #082317;
+  --bg-tertiary: #0c3021;
+  --bg-surface: #0a261a;
+  --bg-surface-elevated: #0f3525;
+  --bg-surface-glass: rgba(10, 38, 26, 0.9);
+  --bg-surface-hover: #154531;
+  --bg-subtle-green: rgba(20, 73, 51, 0.3);
+
+  --color-forest: #144933;
+  --color-forest-dark: #051910;
+  --color-forest-light: #1d6144;
+  --color-forest-muted: #7fa490;
+  --color-forest-surface: rgba(20, 73, 51, 0.25);
+
+  --color-gold: #d4af37;
+  --color-gold-bright: #fcedc7;
+  --color-gold-dark: #a8841a;
+  --color-gold-light: #fff2c6;
+  --color-gold-surface: rgba(212, 175, 55, 0.15);
+  --color-gold-glow: rgba(212, 175, 55, 0.3);
+
+  --gradient-gold: linear-gradient(135deg, #fff2c6 0%, #e5c158 35%, #d4af37 60%, #a47e12 100%);
+  --gradient-gold-text: linear-gradient(135deg, #fff6d9 0%, #ecc866 30%, #d4af37 70%, #9e7912 100%);
+  --gradient-forest: linear-gradient(135deg, #051910 0%, #0a261a 60%, #0f3525 100%);
+  --gradient-hero-light: radial-gradient(circle at 50% 10%, #0d3424 0%, #051910 75%);
+
+  --text-primary: #fcfaf5;
+  --text-secondary: #e6dfd3;
+  --text-muted: #a7baaF;
+  --text-dim: #7f9588;
+  --text-on-dark: #faf8f5;
+
+  --border-light: rgba(212, 175, 55, 0.2);
+  --border-gold: rgba(212, 175, 55, 0.4);
+  --border-card: rgba(212, 175, 55, 0.22);
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.45);
+  --shadow-card-hover: 0 16px 45px rgba(0, 0, 0, 0.7), 0 0 25px rgba(212, 175, 55, 0.2);
+  --shadow-drawer: -10px 0 50px rgba(0, 0, 0, 0.75);
+
+  --cream-soft: #faf8f5;
+  --cream-muted: #a7baaf;
+  --gold-primary: #d4af37;
+  --gold-light: #fff2c6;
 }
 
 /* Reset & Global */
@@ -56,38 +125,41 @@
 
 html {
   scroll-behavior: smooth;
-  color-scheme: dark;
 }
 
 body {
-  background-color: var(--bg-deep-forest);
-  color: var(--cream-soft);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
   font-family: var(--font-sans);
   overflow-x: hidden;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Mobile-First Bottom Nav Spacer */
+@media (max-width: 768px) {
+  body {
+    padding-bottom: 74px;
+  }
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 7px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--bg-deep-forest);
+  background: var(--bg-primary);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--bg-surface-elevated);
-  border: 1px solid var(--gold-burnished);
+  background: var(--color-gold);
   border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--gold-primary);
 }
 
 /* Selection */
 ::selection {
-  background: var(--gold-primary);
-  color: var(--bg-deep-forest);
+  background: var(--color-forest);
+  color: #ffffff;
 }
 
 /* Typography Utilities */
@@ -100,6 +172,10 @@ body {
   font-family: var(--font-serif-sub);
 }
 
+.text-gold {
+  color: var(--color-gold);
+}
+
 .text-gold-gradient {
   background: var(--gradient-gold-text);
   -webkit-background-clip: text;
@@ -107,7 +183,11 @@ body {
   display: inline-block;
 }
 
-/* Brand Logo Styles matching packaging */
+.text-forest {
+  color: var(--color-forest);
+}
+
+/* Brand Logo Styles */
 .sakhinool-brand-container {
   display: flex;
   flex-direction: column;
@@ -122,7 +202,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.3s ease;
 }
 
 .sakhinool-brand-container:hover .sakhinool-brand-icon-wrap {
@@ -133,7 +213,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: -6px;
+  margin-top: -5px;
 }
 
 .sakhinool-title-row {
@@ -141,27 +221,32 @@ body {
   align-items: baseline;
   justify-content: center;
   font-family: var(--font-serif-royal);
-  font-size: 1.85rem;
+  font-size: 1.75rem;
   font-weight: 700;
   letter-spacing: 0.08em;
-  color: var(--gold-primary);
+  color: var(--color-forest);
+  line-height: 1.1;
+  transition: color 0.3s ease;
+}
+
+[data-theme='dark'] .sakhinool-title-row,
+.sakhinool-brand-container.theme-dark .sakhinool-title-row {
+  color: var(--color-gold);
   background: var(--gradient-gold-text);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  line-height: 1.1;
-  text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
 }
 
 .sakhinool-title-serif {
   display: inline-block;
 }
 
-/* Interlinked oo representing thread loop */
 .sakhinool-infinity-oo {
   display: inline-flex;
   position: relative;
   letter-spacing: -0.18em;
   margin: 0 0.08em;
+  color: var(--color-gold);
 }
 
 .oo-loop-1, .oo-loop-2 {
@@ -174,206 +259,202 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 8px;
   width: 100%;
-  max-width: 220px;
-  margin: 4px 0 2px 0;
+  max-width: 200px;
+  margin: 3px 0 2px 0;
 }
 
 .sakhinool-lotus-divider .divider-line {
   flex: 1;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
 }
 
 .sakhinool-tagline {
   font-family: var(--font-sans);
-  font-size: 0.62rem;
+  font-size: 0.6rem;
   font-weight: 700;
-  letter-spacing: 0.24em;
-  color: var(--gold-light);
+  letter-spacing: 0.22em;
+  color: var(--color-forest);
   text-transform: uppercase;
   margin-top: 1px;
-  opacity: 0.95;
+  opacity: 0.9;
+}
+
+[data-theme='dark'] .sakhinool-tagline,
+.sakhinool-brand-container.theme-dark .sakhinool-tagline {
+  color: var(--color-gold-bright);
 }
 
 .sakhinool-category-dots {
   font-family: var(--font-sans);
-  font-size: 0.58rem;
+  font-size: 0.56rem;
   font-weight: 600;
-  letter-spacing: 0.22em;
-  color: var(--gold-burnished);
+  letter-spacing: 0.2em;
+  color: var(--color-gold-dark);
   text-transform: uppercase;
-  margin-top: 2px;
+  margin-top: 1px;
 }
 
-/* Buttons */
+[data-theme='dark'] .sakhinool-category-dots,
+.sakhinool-brand-container.theme-dark .sakhinool-category-dots {
+  color: var(--color-gold-light);
+}
+
+/* Luxury Buttons */
 .btn-gold {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   background: var(--gradient-gold);
-  color: var(--bg-deep-forest);
+  color: #072216;
   font-family: var(--font-sans);
   font-weight: 700;
-  font-size: 0.92rem;
-  letter-spacing: 0.05em;
-  padding: 12px 26px;
+  font-size: 0.88rem;
+  letter-spacing: 0.04em;
+  padding: 11px 22px;
   border-radius: 9999px;
   border: none;
   cursor: pointer;
-  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.35);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 16px rgba(197, 155, 39, 0.35);
+  transition: all 0.25s ease;
   text-decoration: none;
-  position: relative;
-  overflow: hidden;
-}
-
-.btn-gold::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-  transition: left 0.6s ease;
-}
-
-.btn-gold:hover::before {
-  left: 100%;
+  white-space: nowrap;
 }
 
 .btn-gold:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(212, 175, 55, 0.5);
-  filter: brightness(1.05);
+  box-shadow: 0 7px 24px rgba(197, 155, 39, 0.45);
+  filter: brightness(1.04);
 }
 
-.btn-gold:active {
-  transform: translateY(0);
-}
-
-.btn-gold-outline {
+.btn-forest {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background: rgba(10, 38, 26, 0.5);
-  color: var(--gold-light);
+  background: var(--color-forest);
+  color: #ffffff;
   font-family: var(--font-sans);
   font-weight: 600;
-  font-size: 0.92rem;
-  letter-spacing: 0.05em;
-  padding: 11px 24px;
+  font-size: 0.88rem;
+  letter-spacing: 0.03em;
+  padding: 11px 22px;
   border-radius: 9999px;
-  border: 1px solid rgba(212, 175, 55, 0.5);
-  backdrop-filter: blur(8px);
+  border: none;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 16px rgba(12, 54, 36, 0.25);
+  transition: all 0.25s ease;
   text-decoration: none;
 }
 
-.btn-gold-outline:hover {
-  background: rgba(212, 175, 55, 0.12);
-  border-color: var(--gold-primary);
-  color: var(--gold-highlight);
+.btn-forest:hover {
+  background: var(--color-forest-dark);
   transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.2);
+  box-shadow: 0 6px 22px rgba(12, 54, 36, 0.35);
 }
 
 .btn-whatsapp {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  background: #25d366;
-  color: #032b12;
+  gap: 7px;
+  background: #16a34a;
+  color: #ffffff;
   font-family: var(--font-sans);
   font-weight: 700;
-  font-size: 0.92rem;
-  padding: 12px 24px;
+  font-size: 0.88rem;
+  padding: 11px 20px;
   border-radius: 9999px;
   border: none;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
   text-decoration: none;
-  box-shadow: 0 4px 18px rgba(37, 211, 102, 0.3);
+  box-shadow: 0 4px 14px rgba(22, 163, 74, 0.25);
 }
 
 .btn-whatsapp:hover {
-  background: #2fe06f;
+  background: #15803d;
   transform: translateY(-2px);
-  box-shadow: 0 8px 26px rgba(37, 211, 102, 0.45);
+  box-shadow: 0 6px 20px rgba(22, 163, 74, 0.35);
 }
 
 /* Card Styling */
 .sakhinool-card {
-  background: var(--bg-card-green);
-  border: 1px solid rgba(212, 175, 55, 0.2);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-card);
   border-radius: 16px;
   overflow: hidden;
   box-shadow: var(--shadow-card);
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
 }
 
 .sakhinool-card:hover {
-  border-color: var(--gold-primary);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(212, 175, 55, 0.2);
-  transform: translateY(-6px);
+  border-color: var(--color-gold);
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-4px);
 }
 
 /* Badges */
 .badge-gold {
-  background: rgba(212, 175, 55, 0.15);
-  border: 1px solid rgba(212, 175, 55, 0.4);
-  color: var(--gold-light);
-  font-size: 0.72rem;
+  background: var(--color-gold-surface);
+  border: 1px solid var(--border-gold);
+  color: var(--color-gold-dark);
+  font-size: 0.7rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  padding: 4px 10px;
+  padding: 3px 9px;
   border-radius: 9999px;
   display: inline-flex;
   align-items: center;
   gap: 4px;
 }
 
+[data-theme='dark'] .badge-gold {
+  color: var(--color-gold-bright);
+}
+
 .badge-kerala {
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(212, 175, 55, 0.2) 100%);
-  border: 1px solid rgba(212, 175, 55, 0.5);
-  color: #f7e4af;
-  font-size: 0.72rem;
+  background: var(--color-forest-surface);
+  border: 1px solid var(--border-light);
+  color: var(--color-forest);
+  font-size: 0.7rem;
   font-weight: 700;
-  padding: 4px 10px;
+  padding: 3px 9px;
   border-radius: 9999px;
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 4px;
 }
 
-/* Kerala Traditional Motif Accents */
+[data-theme='dark'] .badge-kerala {
+  color: #86efac;
+}
+
+/* Kerala Traditional Kasavu Ribbon */
 .kasavu-stripe {
   height: 3px;
   background: repeating-linear-gradient(
     90deg,
-    var(--gold-primary) 0px,
-    var(--gold-highlight) 6px,
-    var(--gold-burnished) 12px,
-    var(--bg-deep-forest) 13px
+    var(--color-gold) 0px,
+    var(--color-gold-bright) 6px,
+    var(--color-gold-dark) 12px,
+    var(--color-forest) 13px
   );
   width: 100%;
 }
 
-/* Modal Overlay & Drawer */
+/* Drawers & Modals */
 .drawer-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(3, 15, 9, 0.75);
-  backdrop-filter: blur(8px);
-  z-index: 1000;
+  background: rgba(8, 25, 17, 0.5);
+  backdrop-filter: blur(6px);
+  z-index: 1100;
   animation: fadeIn 0.25s ease-out;
 }
 
@@ -383,14 +464,14 @@ body {
   right: 0;
   bottom: 0;
   width: 100%;
-  max-width: 480px;
-  background: var(--bg-card-green);
-  border-left: 1px solid rgba(212, 175, 55, 0.3);
-  box-shadow: -10px 0 50px rgba(0, 0, 0, 0.7);
-  z-index: 1001;
+  max-width: 460px;
+  background: var(--bg-surface);
+  border-left: 1px solid var(--border-light);
+  box-shadow: var(--shadow-drawer);
+  z-index: 1101;
   display: flex;
   flex-direction: column;
-  animation: slideInRight 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: slideInRight 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Animations */
@@ -404,15 +485,6 @@ body {
   to { transform: translateX(0); }
 }
 
-@keyframes pulseGlow {
-  0%, 100% {
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
-  }
-  50% {
-    box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
-  }
-}
-
 @keyframes marquee {
   0% { transform: translateX(0%); }
   100% { transform: translateX(-50%); }
@@ -421,7 +493,7 @@ body {
 .animate-marquee {
   display: flex;
   width: 200%;
-  animation: marquee 25s linear infinite;
+  animation: marquee 24s linear infinite;
 }
 
 .animate-marquee:hover {
@@ -430,19 +502,13 @@ body {
 
 /* Responsive Containers */
 .container-custom {
-  max-width: 1280px;
+  max-width: 1240px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 20px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 640px) {
   .container-custom {
-    padding: 0 16px;
-  }
-  .sakhinool-title-row {
-    font-size: 1.45rem;
-  }
-  .sakhinool-tagline {
-    font-size: 0.54rem;
+    padding: 0 12px;
   }
 }

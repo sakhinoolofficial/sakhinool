@@ -72,11 +72,10 @@ export default function SareeModal({
                 height={800}
                 className="modal-saree-img"
               />
-              <div className="modal-img-vignette" />
               {saree.badge && (
                 <div className="modal-badge-pos">
                   <span className="badge-gold">
-                    <Sparkles size={13} />
+                    <Sparkles size={12} />
                     <span>{saree.badge}</span>
                   </span>
                 </div>
@@ -90,7 +89,7 @@ export default function SareeModal({
               </div>
               <div className="trust-pill">
                 <Sparkles size={14} className="text-gold" />
-                <span>Pure Zari &amp; Tested Core</span>
+                <span>Pure Tested Zari</span>
               </div>
             </div>
           </div>
@@ -117,7 +116,7 @@ export default function SareeModal({
             {/* Kerala Delivery Estimator */}
             <div className="kerala-delivery-box">
               <div className="delivery-box-title">
-                <MapPin size={16} className="text-gold" />
+                <MapPin size={15} className="text-forest" />
                 <span>Kerala Delivery Destination:</span>
               </div>
               <div className="district-select-wrap">
@@ -134,8 +133,8 @@ export default function SareeModal({
                 </select>
               </div>
               <div className="delivery-time-note">
-                <Truck size={14} color="#34d399" />
-                <span>Estimated dispatch to <strong>{selectedDistrict}</strong>: 24 - 48 Hours (Express Courier)</span>
+                <Truck size={14} color="#16a34a" />
+                <span>Estimated dispatch to <strong>{selectedDistrict}</strong>: 24 - 48 Hours (Express Handloom Courier)</span>
               </div>
             </div>
 
@@ -186,10 +185,10 @@ export default function SareeModal({
             <div className="modal-cta-row">
               <button
                 type="button"
-                className="btn-gold flex-1"
+                className="btn-forest flex-1"
                 onClick={handleAdd}
               >
-                <ShoppingBag size={18} />
+                <ShoppingBag size={17} />
                 <span>{addedNotice ? '✓ Added to Bag' : 'Add to Order Bag'}</span>
               </button>
 
@@ -198,8 +197,9 @@ export default function SareeModal({
                 className={`modal-wishlist-btn ${isWishlisted ? 'active' : ''}`}
                 onClick={() => onToggleWishlist(saree)}
                 title="Save to Wishlist"
+                aria-label="Wishlist"
               >
-                <Heart size={20} fill={isWishlisted ? '#d4af37' : 'none'} color={isWishlisted ? '#d4af37' : '#fff'} />
+                <Heart size={18} fill={isWishlisted ? '#c59b27' : 'none'} color={isWishlisted ? '#c59b27' : 'var(--color-forest)'} />
               </button>
             </div>
 
@@ -210,7 +210,7 @@ export default function SareeModal({
               rel="noopener noreferrer"
               className="btn-whatsapp w-full"
             >
-              <MessageCircle size={19} />
+              <MessageCircle size={18} />
               <span>Order Directly via WhatsApp (+91 7306045546)</span>
             </a>
           </div>
@@ -221,32 +221,33 @@ export default function SareeModal({
         .modal-backdrop {
           position: fixed;
           inset: 0;
-          background: rgba(3, 15, 10, 0.85);
-          backdrop-filter: blur(10px);
-          z-index: 1100;
+          background: rgba(8, 25, 17, 0.6);
+          backdrop-filter: blur(8px);
+          z-index: 1200;
           display: flex;
           align-items: center;
           justify-content: center;
-          padding: 24px;
-          animation: fadeIn 0.25s ease-out;
+          padding: 20px;
+          animation: fadeIn 0.2s ease-out;
         }
         .modal-dialog {
-          max-width: 980px;
+          max-width: 940px;
           width: 100%;
           max-height: 90vh;
           overflow-y: auto;
-          background: #072115;
-          border: 1px solid rgba(212, 175, 55, 0.4);
-          box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 35px rgba(212, 175, 55, 0.2);
+          background: var(--bg-surface);
+          border: 1px solid var(--border-gold);
+          box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
           position: relative;
+          border-radius: 20px;
         }
         .modal-close-btn {
           position: absolute;
-          top: 18px;
-          right: 18px;
-          background: rgba(10, 38, 26, 0.8);
-          border: 1px solid rgba(212, 175, 55, 0.3);
-          color: var(--gold-light);
+          top: 16px;
+          right: 16px;
+          background: var(--bg-surface);
+          border: 1px solid var(--border-light);
+          color: var(--text-primary);
           width: 36px;
           height: 36px;
           border-radius: 50%;
@@ -258,202 +259,212 @@ export default function SareeModal({
           transition: all 0.2s ease;
         }
         .modal-close-btn:hover {
-          background: var(--gold-primary);
-          color: var(--bg-deep-forest);
+          background: var(--color-forest);
+          color: #ffffff;
         }
         .modal-content-grid {
           display: grid;
           grid-template-columns: 1fr 1.2fr;
-          gap: 32px;
-          padding: 32px;
+          gap: 28px;
+          padding: 28px;
         }
         .modal-image-frame {
           position: relative;
-          border-radius: 16px;
+          border-radius: 14px;
           overflow: hidden;
           aspect-ratio: 3/4;
-          background: #020a06;
-          border: 1px solid rgba(212, 175, 55, 0.2);
+          background: #f7f4ed;
+          border: 1px solid var(--border-light);
         }
         .modal-saree-img {
           width: 100%;
           height: 100%;
           object-fit: cover;
         }
-        .modal-img-vignette {
-          position: absolute;
-          inset: 0;
-          background: linear-gradient(180deg, transparent 60%, rgba(5, 25, 16, 0.6) 100%);
-          pointer-events: none;
-        }
         .modal-badge-pos {
           position: absolute;
-          top: 14px;
-          left: 14px;
+          top: 12px;
+          left: 12px;
         }
         .modal-trust-strip {
           display: flex;
-          gap: 10px;
-          margin-top: 14px;
+          gap: 8px;
+          margin-top: 12px;
           flex-wrap: wrap;
         }
         .trust-pill {
           display: flex;
           align-items: center;
           gap: 6px;
-          background: rgba(212, 175, 55, 0.1);
-          border: 1px solid rgba(212, 175, 55, 0.25);
-          color: var(--gold-light);
+          background: var(--color-forest-surface);
+          border: 1px solid var(--border-light);
+          color: var(--color-forest);
           font-size: 0.72rem;
-          padding: 5px 10px;
+          padding: 4px 10px;
           border-radius: 9999px;
+          font-weight: 600;
+        }
+        [data-theme='dark'] .trust-pill {
+          color: var(--color-gold-bright);
         }
         .modal-details-col {
           display: flex;
           flex-direction: column;
-          gap: 18px;
+          gap: 16px;
         }
         .details-category-row {
           display: flex;
           justify-content: space-between;
-          font-size: 0.78rem;
-          color: var(--gold-burnished);
+          font-size: 0.74rem;
+          color: var(--color-gold);
           text-transform: uppercase;
           letter-spacing: 0.08em;
           font-weight: 700;
         }
         .details-title {
-          font-size: 1.7rem;
-          color: var(--cream-soft);
+          font-size: 1.55rem;
+          color: var(--color-forest);
           line-height: 1.25;
-          margin-top: 4px;
+          margin-top: 2px;
+        }
+        [data-theme='dark'] .details-title {
+          color: var(--text-primary);
         }
         .details-tagline {
-          font-size: 0.98rem;
-          color: var(--cream-muted);
-          margin-top: 4px;
+          font-size: 0.95rem;
+          color: var(--text-secondary);
+          margin-top: 2px;
         }
         .details-price-row {
           display: flex;
           align-items: baseline;
-          gap: 12px;
-          padding-bottom: 14px;
-          border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+          gap: 10px;
+          padding-bottom: 12px;
+          border-bottom: 1px solid var(--border-light);
         }
         .price-main {
-          font-size: 1.75rem;
+          font-size: 1.65rem;
           font-weight: 700;
-          color: var(--gold-primary);
+          color: var(--color-forest);
+        }
+        [data-theme='dark'] .price-main {
+          color: var(--color-gold-bright);
         }
         .price-strike {
-          font-size: 1.05rem;
+          font-size: 1rem;
           color: var(--text-dim);
           text-decoration: line-through;
         }
         .discount-tag {
-          font-size: 0.76rem;
-          background: rgba(220, 38, 38, 0.2);
-          color: #fca5a5;
-          border: 1px solid rgba(220, 38, 38, 0.4);
-          padding: 2px 8px;
+          font-size: 0.72rem;
+          background: rgba(220, 38, 38, 0.1);
+          color: #dc2626;
+          border: 1px solid rgba(220, 38, 38, 0.25);
+          padding: 2px 7px;
           border-radius: 4px;
           font-weight: 700;
         }
         .kerala-delivery-box {
-          background: rgba(10, 38, 26, 0.75);
-          border: 1px solid rgba(212, 175, 55, 0.25);
-          padding: 14px 16px;
+          background: var(--bg-subtle-green);
+          border: 1px solid var(--border-light);
+          padding: 12px 14px;
           border-radius: 12px;
           display: flex;
           flex-direction: column;
-          gap: 8px;
+          gap: 6px;
         }
         .delivery-box-title {
           display: flex;
           align-items: center;
           gap: 6px;
-          font-size: 0.82rem;
-          font-weight: 600;
-          color: var(--gold-light);
+          font-size: 0.8rem;
+          font-weight: 700;
+          color: var(--color-forest);
         }
         .district-select {
           width: 100%;
-          background: #051910;
-          border: 1px solid rgba(212, 175, 55, 0.4);
-          color: var(--cream-soft);
-          padding: 8px 12px;
-          border-radius: 8px;
-          font-size: 0.88rem;
+          background: var(--bg-surface);
+          border: 1px solid var(--border-light);
+          color: var(--text-primary);
+          padding: 7px 10px;
+          border-radius: 7px;
+          font-size: 0.84rem;
           outline: none;
         }
         .delivery-time-note {
           display: flex;
           align-items: center;
           gap: 6px;
-          font-size: 0.78rem;
-          color: #a7f3d0;
+          font-size: 0.76rem;
+          color: #15803d;
         }
         .specs-section {
           display: flex;
           flex-direction: column;
-          gap: 8px;
+          gap: 6px;
         }
         .specs-heading {
-          font-size: 0.95rem;
-          color: var(--gold-light);
-          letter-spacing: 0.05em;
+          font-size: 0.92rem;
+          color: var(--color-forest);
+          letter-spacing: 0.04em;
+        }
+        [data-theme='dark'] .specs-heading {
+          color: var(--color-gold-bright);
         }
         .specs-grid {
           display: grid;
           grid-template-columns: 1fr;
-          gap: 6px;
-          font-size: 0.82rem;
-          background: rgba(5, 25, 16, 0.5);
-          padding: 12px;
+          gap: 5px;
+          font-size: 0.8rem;
+          background: var(--bg-secondary);
+          padding: 10px 12px;
           border-radius: 8px;
-          border: 1px solid rgba(212, 175, 55, 0.15);
+          border: 1px solid var(--border-light);
         }
         .spec-item {
           display: flex;
           gap: 8px;
         }
         .spec-label {
-          color: var(--gold-burnished);
-          font-weight: 600;
+          color: var(--color-forest);
+          font-weight: 700;
           min-width: 90px;
         }
+        [data-theme='dark'] .spec-label {
+          color: var(--color-gold);
+        }
         .spec-val {
-          color: var(--cream-soft);
+          color: var(--text-secondary);
         }
         .desc-text {
-          font-size: 0.94rem;
-          color: var(--cream-muted);
-          line-height: 1.55;
+          font-size: 0.92rem;
+          color: var(--text-secondary);
+          line-height: 1.5;
         }
         .care-box {
           display: flex;
           align-items: flex-start;
           gap: 8px;
-          background: rgba(212, 175, 55, 0.08);
-          border: 1px solid rgba(212, 175, 55, 0.2);
-          padding: 10px 14px;
+          background: var(--color-gold-surface);
+          border: 1px solid var(--border-gold);
+          padding: 8px 12px;
           border-radius: 8px;
-          font-size: 0.78rem;
-          color: var(--cream-muted);
+          font-size: 0.76rem;
+          color: var(--text-secondary);
         }
         .modal-cta-row {
           display: flex;
           align-items: center;
-          gap: 12px;
+          gap: 10px;
         }
         .flex-1 {
           flex: 1;
         }
         .modal-wishlist-btn {
-          background: rgba(10, 38, 26, 0.8);
-          border: 1px solid rgba(212, 175, 55, 0.35);
-          width: 48px;
-          height: 48px;
+          background: var(--bg-surface);
+          border: 1px solid var(--border-light);
+          width: 44px;
+          height: 44px;
           border-radius: 9999px;
           display: flex;
           align-items: center;
@@ -462,18 +473,26 @@ export default function SareeModal({
           transition: all 0.2s ease;
         }
         .modal-wishlist-btn:hover {
-          background: rgba(212, 175, 55, 0.2);
-          border-color: var(--gold-primary);
-        }
-        .modal-wishlist-btn.active {
-          border-color: var(--gold-primary);
+          border-color: var(--color-gold);
         }
 
-        @media (max-width: 840px) {
+        @media (max-width: 800px) {
+          .modal-backdrop {
+            padding: 0;
+            align-items: flex-end;
+          }
+          .modal-dialog {
+            max-height: 92vh;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+          }
           .modal-content-grid {
             grid-template-columns: 1fr;
-            padding: 20px;
-            gap: 20px;
+            padding: 20px 16px 80px 16px;
+            gap: 18px;
+          }
+          .modal-image-frame {
+            max-height: 280px;
           }
         }
       `}</style>

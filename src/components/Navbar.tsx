@@ -2,7 +2,8 @@
 
 import React, { useState } from 'react';
 import SakhinoolLogo from './SakhinoolLogo';
-import { ShoppingBag, Heart, Search, MessageCircle, Menu, X, Sparkles, MapPin } from 'lucide-react';
+import { useTheme } from './ThemeContext';
+import { ShoppingBag, Heart, Search, MessageCircle, Menu, X, Sparkles, Sun, Moon } from 'lucide-react';
 
 interface NavbarProps {
   cartCount: number;
@@ -20,9 +21,10 @@ export default function Navbar({
   onOpenSearch
 }: NavbarProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   return (
-    <header className="sticky top-0 z-50 w-full">
+    <header className="sticky top-0 z-50 w-full header-root">
       {/* Top Heritage Delivery Banner */}
       <div className="top-delivery-bar">
         <div className="container-custom top-bar-inner">
@@ -64,9 +66,9 @@ export default function Navbar({
             type="button" 
             className="mobile-toggle-btn"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle menu"
+            aria-label="Toggle navigation menu"
           >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
 
           {/* Left Navigation Links (Desktop) */}
@@ -93,24 +95,37 @@ export default function Navbar({
 
           {/* Right Utility Actions */}
           <div className="nav-actions">
+            {/* Theme Toggle (Light / Dark) */}
+            <button
+              type="button"
+              className="nav-icon-btn theme-toggle-btn"
+              onClick={toggleTheme}
+              title={`Switch to ${theme === 'light' ? 'Dark' : 'Light'} Mode`}
+              aria-label="Toggle theme"
+            >
+              {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
+            </button>
+
             {/* Search */}
             <button 
               type="button" 
               className="nav-icon-btn"
               onClick={onOpenSearch}
               title="Search Sarees"
+              aria-label="Search"
             >
-              <Search size={20} />
+              <Search size={18} />
             </button>
 
             {/* Wishlist */}
             <button 
               type="button" 
-              className="nav-icon-btn"
+              className="nav-icon-btn desktop-only"
               onClick={onOpenWishlist}
               title="Saved Wishlist"
+              aria-label="Wishlist"
             >
-              <Heart size={20} />
+              <Heart size={18} />
               {wishlistCount > 0 && (
                 <span className="badge-counter">{wishlistCount}</span>
               )}
@@ -123,26 +138,26 @@ export default function Navbar({
               onClick={onOpenCart}
               title="Inquiry & Order Bag"
             >
-              <ShoppingBag size={18} />
+              <ShoppingBag size={17} />
               <span className="cart-text">Order Bag</span>
               <span className="cart-count-pill">{cartCount}</span>
             </button>
 
-            {/* Direct WhatsApp Callout */}
+            {/* Direct WhatsApp Callout (Desktop) */}
             <a 
               href="https://wa.me/917306045546?text=Hello%20Sakhinool!%20I%20am%20interested%20in%20exploring%20sarees%20for%20an%20upcoming%20occasion."
               target="_blank"
               rel="noopener noreferrer"
-              className="nav-whatsapp-pill"
+              className="nav-whatsapp-pill desktop-only"
               title="Chat with Sakhinool Stylist"
             >
-              <MessageCircle size={17} />
+              <MessageCircle size={16} />
               <span className="wa-text">Chat with Us</span>
             </a>
           </div>
         </div>
 
-        {/* Mobile Slide-down Drawer */}
+        {/* Mobile Slide-down Menu */}
         {mobileMenuOpen && (
           <div className="mobile-menu-dropdown">
             <div className="mobile-menu-links">
@@ -152,6 +167,12 @@ export default function Navbar({
               <a href="#our-story" onClick={() => setMobileMenuOpen(false)}>The Sakhinool Story</a>
               <a href="#unboxing" onClick={() => setMobileMenuOpen(false)}>Signature Green &amp; Gold Box</a>
               <a href="#faq" onClick={() => setMobileMenuOpen(false)}>Kerala Delivery &amp; FAQs</a>
+              <div className="mobile-menu-theme-row">
+                <span>Theme Preference:</span>
+                <button type="button" className="theme-pill-btn" onClick={toggleTheme}>
+                  {theme === 'light' ? '🌙 Switch to Dark' : '☀️ Switch to Light'}
+                </button>
+              </div>
               <div className="mobile-menu-footer">
                 <a 
                   href="https://wa.me/917306045546" 
@@ -169,11 +190,13 @@ export default function Navbar({
       </nav>
 
       <style jsx>{`
+        .header-root {
+          box-shadow: 0 2px 14px rgba(12, 54, 36, 0.05);
+        }
         .top-delivery-bar {
-          background: #04140d;
-          border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-          font-size: 0.76rem;
-          color: var(--text-muted);
+          background: var(--color-forest);
+          color: #f7f9f7;
+          font-size: 0.74rem;
           padding: 6px 0;
         }
         .top-bar-inner {
@@ -185,10 +208,9 @@ export default function Navbar({
           display: flex;
           align-items: center;
           gap: 6px;
-          color: var(--gold-light);
         }
         .sparkle-icon {
-          color: var(--gold-primary);
+          color: var(--color-gold-light);
           display: flex;
           align-items: center;
         }
@@ -198,7 +220,7 @@ export default function Navbar({
           gap: 12px;
         }
         .top-bar-link {
-          color: var(--text-muted);
+          color: #f0f6f2;
           text-decoration: none;
           transition: color 0.2s;
           display: flex;
@@ -206,55 +228,54 @@ export default function Navbar({
           gap: 6px;
         }
         .top-bar-link:hover {
-          color: var(--gold-primary);
+          color: var(--color-gold-light);
         }
         .online-indicator {
           width: 7px;
           height: 7px;
-          background: #25d366;
+          background: #4ade80;
           border-radius: 50%;
-          box-shadow: 0 0 6px #25d366;
+          box-shadow: 0 0 6px #4ade80;
         }
         .divider-dot {
-          color: var(--gold-deep);
+          color: var(--color-gold);
         }
         .main-navbar {
-          background: rgba(6, 25, 17, 0.88);
+          background: var(--bg-surface-glass);
           backdrop-filter: blur(14px);
           -webkit-backdrop-filter: blur(14px);
-          border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+          border-bottom: 1px solid var(--border-light);
           transition: background 0.3s;
         }
         .nav-container {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          padding-top: 10px;
-          padding-bottom: 10px;
+          padding-top: 8px;
+          padding-bottom: 8px;
           position: relative;
         }
         .desktop-nav-links {
           display: flex;
           align-items: center;
-          gap: 24px;
+          gap: 22px;
         }
         .nav-link {
-          color: var(--cream-soft);
+          color: var(--text-primary);
           text-decoration: none;
-          font-size: 0.88rem;
-          font-weight: 500;
-          letter-spacing: 0.03em;
+          font-size: 0.86rem;
+          font-weight: 600;
+          letter-spacing: 0.02em;
           transition: color 0.2s;
-          position: relative;
           display: inline-flex;
           align-items: center;
-          gap: 5px;
+          gap: 4px;
         }
         .nav-link:hover {
-          color: var(--gold-light);
+          color: var(--color-forest);
         }
         .highlight-link {
-          color: var(--gold-light);
+          color: var(--color-forest);
         }
         .nav-center-brand {
           text-decoration: none;
@@ -265,35 +286,37 @@ export default function Navbar({
         .nav-actions {
           display: flex;
           align-items: center;
-          gap: 10px;
+          gap: 8px;
         }
         .nav-icon-btn {
-          background: rgba(10, 38, 26, 0.6);
-          border: 1px solid rgba(212, 175, 55, 0.25);
-          color: var(--gold-light);
-          width: 38px;
-          height: 38px;
+          background: var(--color-forest-surface);
+          border: 1px solid var(--border-light);
+          color: var(--color-forest);
+          width: 36px;
+          height: 36px;
           border-radius: 50%;
           display: flex;
           align-items: center;
           justify-content: center;
           cursor: pointer;
           position: relative;
-          transition: all 0.25s ease;
+          transition: all 0.2s ease;
+        }
+        [data-theme='dark'] .nav-icon-btn {
+          color: var(--color-gold);
         }
         .nav-icon-btn:hover {
-          background: rgba(212, 175, 55, 0.15);
-          border-color: var(--gold-primary);
-          color: #fff;
+          background: var(--color-gold-surface);
+          border-color: var(--color-gold);
           transform: translateY(-1px);
         }
         .badge-counter {
           position: absolute;
-          top: -3px;
-          right: -3px;
-          background: var(--gold-primary);
-          color: var(--bg-deep-forest);
-          font-size: 0.65rem;
+          top: -2px;
+          right: -2px;
+          background: var(--color-forest);
+          color: #ffffff;
+          font-size: 0.62rem;
           font-weight: 800;
           width: 17px;
           height: 17px;
@@ -301,84 +324,114 @@ export default function Navbar({
           display: flex;
           align-items: center;
           justify-content: center;
-          border: 1px solid var(--bg-deep-forest);
+        }
+        [data-theme='dark'] .badge-counter {
+          background: var(--color-gold);
+          color: #051910;
         }
         .nav-cart-btn {
           display: flex;
           align-items: center;
-          gap: 8px;
-          background: linear-gradient(135deg, rgba(212, 175, 55, 0.18) 0%, rgba(10, 38, 26, 0.8) 100%);
-          border: 1px solid rgba(212, 175, 55, 0.4);
-          color: var(--gold-light);
-          padding: 7px 14px;
+          gap: 6px;
+          background: var(--color-forest-surface);
+          border: 1px solid var(--border-light);
+          color: var(--color-forest);
+          padding: 6px 12px;
           border-radius: 9999px;
           cursor: pointer;
-          font-size: 0.84rem;
+          font-size: 0.82rem;
           font-weight: 600;
-          transition: all 0.25s ease;
+          transition: all 0.2s ease;
+        }
+        [data-theme='dark'] .nav-cart-btn {
+          color: var(--color-gold);
         }
         .nav-cart-btn:hover {
-          border-color: var(--gold-primary);
-          background: rgba(212, 175, 55, 0.25);
+          border-color: var(--color-gold);
+          background: var(--color-gold-surface);
           transform: translateY(-1px);
         }
         .cart-count-pill {
-          background: var(--gold-primary);
-          color: var(--bg-deep-forest);
-          font-size: 0.72rem;
+          background: var(--color-forest);
+          color: #ffffff;
+          font-size: 0.7rem;
           font-weight: 800;
-          padding: 2px 7px;
+          padding: 1px 7px;
           border-radius: 9999px;
+        }
+        [data-theme='dark'] .cart-count-pill {
+          background: var(--color-gold);
+          color: #051910;
         }
         .nav-whatsapp-pill {
           display: inline-flex;
           align-items: center;
-          gap: 6px;
-          background: rgba(37, 211, 102, 0.14);
-          border: 1px solid rgba(37, 211, 102, 0.45);
-          color: #4ade80;
-          padding: 7px 14px;
+          gap: 5px;
+          background: rgba(22, 163, 74, 0.1);
+          border: 1px solid rgba(22, 163, 74, 0.35);
+          color: #16a34a;
+          padding: 6px 12px;
           border-radius: 9999px;
-          font-size: 0.82rem;
+          font-size: 0.8rem;
           font-weight: 600;
           text-decoration: none;
-          transition: all 0.25s ease;
+          transition: all 0.2s ease;
         }
         .nav-whatsapp-pill:hover {
-          background: rgba(37, 211, 102, 0.25);
-          color: #86efac;
+          background: #16a34a;
+          color: #ffffff;
           transform: translateY(-1px);
         }
         .mobile-toggle-btn {
           display: none;
           background: transparent;
           border: none;
-          color: var(--gold-light);
+          color: var(--color-forest);
           cursor: pointer;
+          padding: 4px;
+        }
+        [data-theme='dark'] .mobile-toggle-btn {
+          color: var(--color-gold);
         }
         .mobile-menu-dropdown {
-          background: var(--bg-deep-forest);
-          border-bottom: 1px solid rgba(212, 175, 55, 0.3);
-          padding: 20px 24px;
+          background: var(--bg-surface);
+          border-bottom: 1px solid var(--border-light);
+          padding: 18px 20px;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
         }
         .mobile-menu-links {
           display: flex;
           flex-direction: column;
-          gap: 16px;
+          gap: 14px;
         }
         .mobile-menu-links a {
-          color: var(--cream-soft);
+          color: var(--text-primary);
           text-decoration: none;
-          font-size: 1rem;
-          font-weight: 500;
+          font-size: 0.95rem;
+          font-weight: 600;
           padding: 4px 0;
-          border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+          border-bottom: 1px solid var(--border-light);
         }
-        .mobile-menu-links a:hover {
-          color: var(--gold-primary);
+        .mobile-menu-theme-row {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 8px 0;
+          font-size: 0.85rem;
+          color: var(--text-secondary);
+        }
+        .theme-pill-btn {
+          background: var(--color-forest-surface);
+          border: 1px solid var(--border-light);
+          color: var(--color-forest);
+          padding: 5px 12px;
+          border-radius: 9999px;
+          font-size: 0.78rem;
+          font-weight: 600;
+          cursor: pointer;
         }
         .mobile-menu-footer {
-          margin-top: 14px;
+          margin-top: 10px;
         }
 
         @media (max-width: 1024px) {
@@ -399,6 +452,9 @@ export default function Navbar({
           }
           .top-bar-inner {
             justify-content: center;
+          }
+          .desktop-only {
+            display: none;
           }
         }
       `}</style>

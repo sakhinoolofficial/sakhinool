@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { X, Trash2, Plus, Minus, MessageCircle, CreditCard, Sparkles, MapPin, ShieldCheck, ArrowRight } from 'lucide-react';
+import { X, Trash2, Plus, Minus, MessageCircle, CreditCard, Sparkles, MapPin, ArrowRight } from 'lucide-react';
 import { Saree, KERALA_DISTRICTS } from '../data/sarees';
 
 export interface CartItem {
@@ -75,7 +75,7 @@ export default function InquiryBagDrawer({
     if (customerNotes.trim()) {
       msg += `*Special Request:* ${customerNotes.trim()}\n`;
     }
-    msg += `\nPlease confirm availability and payment/delivery schedule. Thank you!`;
+    msg += `\nPlease confirm availability and dispatch schedule. Thank you!`;
 
     return encodeURIComponent(msg);
   };
@@ -87,7 +87,7 @@ export default function InquiryBagDrawer({
       setOrderPlacedNotice(false);
       onClearBag();
       onClose();
-    }, 3000);
+    }, 2800);
   };
 
   return (
@@ -130,7 +130,7 @@ export default function InquiryBagDrawer({
           {items.length === 0 ? (
             <div className="empty-cart-state">
               <div className="empty-icon-wrap">
-                <Sparkles size={36} className="text-gold" />
+                <Sparkles size={34} className="text-gold" />
               </div>
               <h4 className="empty-title font-royal">Your Bag is Empty</h4>
               <p className="empty-desc font-editorial">
@@ -138,7 +138,7 @@ export default function InquiryBagDrawer({
               </p>
               <button
                 type="button"
-                className="btn-gold"
+                className="btn-forest"
                 onClick={onClose}
               >
                 <span>Browse Collections</span>
@@ -166,6 +166,7 @@ export default function InquiryBagDrawer({
                         className="btn-remove-item"
                         onClick={() => onRemoveItem(saree.id)}
                         title="Remove item"
+                        aria-label="Remove item"
                       >
                         <Trash2 size={15} />
                       </button>
@@ -180,6 +181,7 @@ export default function InquiryBagDrawer({
                           className="qty-btn"
                           onClick={() => onUpdateQuantity(saree.id, quantity - 1)}
                           disabled={quantity <= 1}
+                          aria-label="Decrease quantity"
                         >
                           <Minus size={12} />
                         </button>
@@ -188,6 +190,7 @@ export default function InquiryBagDrawer({
                           type="button"
                           className="qty-btn"
                           onClick={() => onUpdateQuantity(saree.id, quantity + 1)}
+                          aria-label="Increase quantity"
                         >
                           <Plus size={12} />
                         </button>
@@ -214,7 +217,7 @@ export default function InquiryBagDrawer({
             {/* Delivery Destination Selector */}
             <div className="drawer-dest-group">
               <label className="dest-label">
-                <MapPin size={14} className="text-gold" />
+                <MapPin size={13} className="text-forest" />
                 <span>Kerala Shipping District:</span>
               </label>
               <select
@@ -272,11 +275,11 @@ export default function InquiryBagDrawer({
                   rel="noopener noreferrer"
                   className="btn-whatsapp w-full"
                 >
-                  <MessageCircle size={20} />
+                  <MessageCircle size={18} />
                   <span>Send Order to WhatsApp (+91 7306045546)</span>
                 </a>
                 <p className="order-note font-editorial">
-                  💬 Sakhinool Concierge will confirm your drape, color tone &amp; dispatch to {selectedDistrict}.
+                  💬 Sakhinool Concierge will confirm your drape &amp; dispatch to {selectedDistrict}.
                 </p>
               </div>
             ) : (
@@ -284,11 +287,11 @@ export default function InquiryBagDrawer({
                 {orderPlacedNotice ? (
                   <div className="order-success-banner">
                     <Sparkles size={18} className="text-gold" />
-                    <span>Demo Order Recorded! Our team is preparing full gateway integration.</span>
+                    <span>Demo Order Recorded! Online gateway integration in progress.</span>
                   </div>
                 ) : (
                   <>
-                    <button type="submit" className="btn-gold w-full">
+                    <button type="submit" className="btn-forest w-full">
                       <CreditCard size={18} />
                       <span>Proceed with Online Checkout ({formattedGrandTotal})</span>
                     </button>
@@ -308,9 +311,9 @@ export default function InquiryBagDrawer({
           display: flex;
           align-items: center;
           justify-content: space-between;
-          padding: 20px 24px;
-          border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-          background: #061e13;
+          padding: 18px 22px;
+          border-bottom: 1px solid var(--border-light);
+          background: var(--bg-surface);
         }
         .drawer-title-wrap {
           display: flex;
@@ -318,47 +321,49 @@ export default function InquiryBagDrawer({
           gap: 10px;
         }
         .drawer-title {
-          font-size: 1.25rem;
-          color: var(--gold-light);
+          font-size: 1.2rem;
+          color: var(--color-forest);
+        }
+        [data-theme='dark'] .drawer-title {
+          color: var(--text-primary);
         }
         .drawer-count-badge {
-          background: rgba(212, 175, 55, 0.15);
-          border: 1px solid rgba(212, 175, 55, 0.4);
-          color: var(--gold-primary);
+          background: var(--color-forest-surface);
+          border: 1px solid var(--border-light);
+          color: var(--color-forest);
           font-size: 0.72rem;
           font-weight: 700;
           padding: 2px 8px;
           border-radius: 9999px;
         }
+        [data-theme='dark'] .drawer-count-badge {
+          color: var(--color-gold);
+        }
         .drawer-close-btn {
           background: transparent;
           border: none;
-          color: var(--cream-soft);
+          color: var(--text-primary);
           cursor: pointer;
           display: flex;
           align-items: center;
           justify-content: center;
           padding: 4px;
-          border-radius: 50%;
-        }
-        .drawer-close-btn:hover {
-          color: var(--gold-primary);
         }
         .mode-toggle-bar {
           display: grid;
           grid-template-columns: 1fr 1fr;
           padding: 8px 16px;
-          background: #04140d;
+          background: var(--bg-secondary);
           gap: 8px;
-          border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+          border-bottom: 1px solid var(--border-light);
         }
         .mode-btn {
           background: transparent;
           border: 1px solid transparent;
-          color: var(--text-dim);
-          padding: 8px 10px;
+          color: var(--text-muted);
+          padding: 7px 10px;
           border-radius: 8px;
-          font-size: 0.78rem;
+          font-size: 0.76rem;
           font-weight: 600;
           display: flex;
           align-items: center;
@@ -368,14 +373,18 @@ export default function InquiryBagDrawer({
           transition: all 0.2s ease;
         }
         .mode-btn.active {
-          background: rgba(212, 175, 55, 0.15);
-          border-color: var(--gold-primary);
-          color: var(--gold-light);
+          background: var(--bg-surface);
+          border-color: var(--border-light);
+          color: var(--color-forest);
+          box-shadow: var(--shadow-sm);
+        }
+        [data-theme='dark'] .mode-btn.active {
+          color: var(--color-gold-bright);
         }
         .drawer-content {
           flex: 1;
           overflow-y: auto;
-          padding: 20px 24px;
+          padding: 18px 20px;
         }
         .empty-cart-state {
           display: flex;
@@ -384,48 +393,51 @@ export default function InquiryBagDrawer({
           justify-content: center;
           text-align: center;
           height: 100%;
-          gap: 14px;
-          padding: 40px 20px;
+          gap: 12px;
+          padding: 30px 16px;
         }
         .empty-icon-wrap {
-          background: rgba(212, 175, 55, 0.1);
-          border: 1px solid rgba(212, 175, 55, 0.3);
-          width: 72px;
-          height: 72px;
+          background: var(--color-gold-surface);
+          border: 1px solid var(--border-gold);
+          width: 64px;
+          height: 64px;
           border-radius: 50%;
           display: flex;
           align-items: center;
           justify-content: center;
         }
         .empty-title {
-          font-size: 1.3rem;
-          color: var(--cream-soft);
+          font-size: 1.25rem;
+          color: var(--color-forest);
+        }
+        [data-theme='dark'] .empty-title {
+          color: var(--text-primary);
         }
         .empty-desc {
           font-size: 0.95rem;
-          color: var(--cream-muted);
-          max-width: 280px;
+          color: var(--text-secondary);
+          max-width: 260px;
         }
         .cart-items-list {
           display: flex;
           flex-direction: column;
-          gap: 16px;
+          gap: 12px;
         }
         .cart-item-row {
           display: flex;
-          gap: 14px;
-          background: rgba(5, 25, 16, 0.6);
-          border: 1px solid rgba(212, 175, 55, 0.2);
-          padding: 12px;
+          gap: 12px;
+          background: var(--bg-surface);
+          border: 1px solid var(--border-light);
+          padding: 10px;
           border-radius: 12px;
         }
         .cart-item-img-wrap {
-          width: 70px;
-          height: 94px;
+          width: 66px;
+          height: 88px;
           border-radius: 8px;
           overflow: hidden;
+          background: #f7f4ed;
           flex-shrink: 0;
-          background: #020905;
         }
         .cart-thumb {
           width: 100%;
@@ -444,24 +456,24 @@ export default function InquiryBagDrawer({
           align-items: center;
         }
         .cart-item-cat {
-          font-size: 0.7rem;
+          font-size: 0.68rem;
           text-transform: uppercase;
-          color: var(--gold-burnished);
+          color: var(--color-gold);
           font-weight: 700;
         }
         .btn-remove-item {
           background: transparent;
           border: none;
-          color: var(--text-dim);
+          color: var(--text-muted);
           cursor: pointer;
         }
         .btn-remove-item:hover {
-          color: #ef4444;
+          color: #dc2626;
         }
         .cart-item-name {
-          font-size: 0.96rem;
-          color: var(--cream-soft);
-          margin: 2px 0 6px 0;
+          font-size: 0.92rem;
+          color: var(--text-primary);
+          margin: 2px 0 4px 0;
           line-height: 1.3;
         }
         .cart-item-bottom {
@@ -472,126 +484,131 @@ export default function InquiryBagDrawer({
         .quantity-controls {
           display: flex;
           align-items: center;
-          gap: 8px;
-          background: #071f15;
-          border: 1px solid rgba(212, 175, 55, 0.3);
+          gap: 6px;
+          background: var(--bg-secondary);
+          border: 1px solid var(--border-light);
           border-radius: 6px;
-          padding: 2px 6px;
+          padding: 2px 5px;
         }
         .qty-btn {
           background: transparent;
           border: none;
-          color: var(--gold-light);
+          color: var(--color-forest);
           cursor: pointer;
           display: flex;
           align-items: center;
           justify-content: center;
-          padding: 2px;
         }
         .qty-btn:disabled {
           opacity: 0.3;
           cursor: not-allowed;
         }
         .qty-val {
-          font-size: 0.8rem;
+          font-size: 0.78rem;
           font-weight: 700;
           min-width: 16px;
           text-align: center;
         }
         .cart-item-price {
-          font-size: 1rem;
+          font-size: 0.96rem;
           font-weight: 700;
-          color: var(--gold-primary);
+          color: var(--color-forest);
+        }
+        [data-theme='dark'] .cart-item-price {
+          color: var(--color-gold-bright);
         }
         .drawer-footer {
-          padding: 20px 24px;
-          border-top: 1px solid rgba(212, 175, 55, 0.25);
-          background: #061e13;
+          padding: 16px 20px;
+          border-top: 1px solid var(--border-light);
+          background: var(--bg-surface);
           display: flex;
           flex-direction: column;
-          gap: 14px;
+          gap: 12px;
         }
         .drawer-dest-group {
           display: flex;
           flex-direction: column;
-          gap: 6px;
+          gap: 4px;
         }
         .dest-label {
           display: flex;
           align-items: center;
-          gap: 6px;
-          font-size: 0.78rem;
+          gap: 5px;
+          font-size: 0.76rem;
           font-weight: 600;
-          color: var(--gold-light);
+          color: var(--color-forest);
         }
         .drawer-dest-select {
-          background: #04140d;
-          border: 1px solid rgba(212, 175, 55, 0.35);
-          color: var(--cream-soft);
-          padding: 8px 10px;
-          border-radius: 8px;
-          font-size: 0.84rem;
+          background: var(--bg-secondary);
+          border: 1px solid var(--border-light);
+          color: var(--text-primary);
+          padding: 7px 10px;
+          border-radius: 7px;
+          font-size: 0.82rem;
           outline: none;
         }
         .drawer-text-input {
           width: 100%;
-          background: #04140d;
-          border: 1px solid rgba(212, 175, 55, 0.3);
-          color: var(--cream-soft);
-          padding: 8px 12px;
-          border-radius: 8px;
-          font-size: 0.84rem;
+          background: var(--bg-secondary);
+          border: 1px solid var(--border-light);
+          color: var(--text-primary);
+          padding: 7px 10px;
+          border-radius: 7px;
+          font-size: 0.82rem;
           outline: none;
         }
         .summary-breakdown {
           display: flex;
           flex-direction: column;
-          gap: 6px;
-          padding: 10px 0;
-          border-top: 1px dashed rgba(212, 175, 55, 0.2);
-          border-bottom: 1px dashed rgba(212, 175, 55, 0.2);
-          font-size: 0.84rem;
+          gap: 5px;
+          padding: 8px 0;
+          border-top: 1px dashed var(--border-light);
+          border-bottom: 1px dashed var(--border-light);
+          font-size: 0.82rem;
         }
         .summary-line {
           display: flex;
           justify-content: space-between;
-          color: var(--cream-muted);
+          color: var(--text-secondary);
         }
         .text-savings {
-          color: #fca5a5;
+          color: #dc2626;
         }
         .text-emerald {
-          color: #34d399;
+          color: #16a34a;
         }
         .total-line {
-          font-size: 1.1rem;
+          font-size: 1.05rem;
           font-weight: 700;
-          color: var(--cream-soft);
-          padding-top: 4px;
+          color: var(--text-primary);
+          padding-top: 3px;
         }
         .total-val {
-          color: var(--gold-primary);
+          color: var(--color-forest);
+        }
+        [data-theme='dark'] .total-val {
+          color: var(--color-gold-bright);
         }
         .order-cta-box {
           display: flex;
           flex-direction: column;
-          gap: 8px;
+          gap: 6px;
         }
         .order-note {
-          font-size: 0.78rem;
-          color: var(--text-dim);
+          font-size: 0.74rem;
+          color: var(--text-muted);
           text-align: center;
         }
         .order-success-banner {
-          background: rgba(212, 175, 55, 0.15);
-          border: 1px solid var(--gold-primary);
-          color: var(--gold-light);
-          padding: 12px;
+          background: var(--color-gold-surface);
+          border: 1px solid var(--border-gold);
+          color: var(--color-forest);
+          padding: 10px;
           border-radius: 8px;
           display: flex;
           align-items: center;
-          gap: 10px;
-          font-size: 0.84rem;
+          gap: 8px;
+          font-size: 0.82rem;
         }
       `}</style>
     </>

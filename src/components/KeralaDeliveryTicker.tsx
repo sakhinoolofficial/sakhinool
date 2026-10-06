@@ -1,5 +1,5 @@
 import React from 'react';
-import { Truck, CheckCircle2, ShieldCheck, HeartHandshake } from 'lucide-react';
+import { Truck, ShieldCheck, HeartHandshake } from 'lucide-react';
 import { KERALA_DISTRICTS } from '../data/sarees';
 
 export default function KeralaDeliveryTicker() {
@@ -7,29 +7,28 @@ export default function KeralaDeliveryTicker() {
     <section className="delivery-ticker-section">
       <div className="ticker-wrapper">
         <div className="ticker-inner animate-marquee">
-          {/* Loop twice for smooth continuous marquee */}
           {[...Array(2)].map((_, loopIdx) => (
             <div key={loopIdx} className="ticker-content-group">
               <span className="ticker-badge">
-                <Truck size={14} className="text-gold" />
+                <Truck size={13} className="text-gold" />
                 <span>EXPRESS KERALA SHIPPING</span>
               </span>
               {KERALA_DISTRICTS.map((district, dIdx) => (
                 <React.Fragment key={`${loopIdx}-${dIdx}`}>
                   <span className="district-item">{district}</span>
-                  <span className="ticker-star">✦</span>
+                  <span className="ticker-star text-gold">✦</span>
                 </React.Fragment>
               ))}
               <span className="ticker-badge">
-                <ShieldCheck size={14} className="text-gold" />
+                <ShieldCheck size={13} className="text-gold" />
                 <span>SILK MARK &amp; HANDLOOM CERTIFIED</span>
               </span>
-              <span className="ticker-star">✦</span>
+              <span className="ticker-star text-gold">✦</span>
               <span className="ticker-badge">
-                <HeartHandshake size={14} className="text-gold" />
+                <HeartHandshake size={13} className="text-gold" />
                 <span>WHATSAPP CONCIERGE: +91 7306045546</span>
               </span>
-              <span className="ticker-star">✦</span>
+              <span className="ticker-star text-gold">✦</span>
             </div>
           ))}
         </div>
@@ -37,11 +36,11 @@ export default function KeralaDeliveryTicker() {
 
       <style jsx>{`
         .delivery-ticker-section {
-          background: #04130c;
-          border-top: 1px solid rgba(212, 175, 55, 0.2);
-          border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+          background: var(--bg-secondary);
+          border-top: 1px solid var(--border-light);
+          border-bottom: 1px solid var(--border-light);
           overflow: hidden;
-          padding: 10px 0;
+          padding: 8px 0;
           position: relative;
         }
         .ticker-wrapper {
@@ -56,32 +55,34 @@ export default function KeralaDeliveryTicker() {
         .ticker-content-group {
           display: flex;
           align-items: center;
-          gap: 16px;
-          padding-right: 16px;
+          gap: 14px;
+          padding-right: 14px;
         }
         .ticker-badge {
           display: inline-flex;
           align-items: center;
-          gap: 6px;
-          background: rgba(212, 175, 55, 0.12);
-          border: 1px solid rgba(212, 175, 55, 0.35);
-          color: var(--gold-light);
-          padding: 3px 10px;
+          gap: 5px;
+          background: var(--color-forest-surface);
+          border: 1px solid var(--border-light);
+          color: var(--color-forest);
+          padding: 3px 9px;
           border-radius: 9999px;
-          font-size: 0.72rem;
+          font-size: 0.7rem;
           font-weight: 700;
-          letter-spacing: 0.06em;
+          letter-spacing: 0.05em;
+        }
+        [data-theme='dark'] .ticker-badge {
+          color: var(--color-gold-bright);
         }
         .district-item {
-          color: var(--cream-soft);
-          font-size: 0.78rem;
+          color: var(--text-primary);
+          font-size: 0.76rem;
           font-weight: 500;
-          letter-spacing: 0.04em;
+          letter-spacing: 0.03em;
         }
         .ticker-star {
-          color: var(--gold-primary);
-          font-size: 0.7rem;
-          opacity: 0.6;
+          font-size: 0.65rem;
+          opacity: 0.7;
         }
       `}</style>
     </section>
