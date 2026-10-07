@@ -2,61 +2,74 @@
 
 :root {
   /* ====================================================
-     DEFAULT: LUXURY LIGHT THEME (White + Forest Green + Gold)
+     SAKHINOOL LUXURY EMERALD & GOLD DESIGN SYSTEM
+     Reference: The Ruh Official (www.theruhofficial.com)
+     - Primary / Canvas: Pure, Luminous White (#ffffff)
+     - Secondary Accents: Royal Emerald Green (#064e3b) & Regal Gold (#c59b27 / #d4af37)
      ==================================================== */
   --bg-primary: #ffffff;
-  --bg-secondary: #fbf9f5;
-  --bg-tertiary: #f4efe6;
+  --bg-secondary: #fafcfa;
+  --bg-tertiary: #f4f8f5;
   --bg-surface: #ffffff;
   --bg-surface-elevated: #ffffff;
-  --bg-surface-glass: rgba(255, 255, 255, 0.92);
-  --bg-surface-hover: #f7f4ed;
-  --bg-subtle-green: #eef5f1;
+  --bg-surface-glass: rgba(255, 255, 255, 0.95);
+  --bg-surface-hover: #f0f7f3;
+  --bg-subtle-green: #eaf4ef;
 
-  /* Secondary: Heritage Forest Green Palette */
-  --color-forest: #0c3624;
-  --color-forest-dark: #072216;
-  --color-forest-light: #185238;
-  --color-forest-muted: #2d4c3d;
-  --color-forest-surface: rgba(12, 54, 36, 0.06);
+  /* Secondary: Royal Emerald Green Palette */
+  --color-emerald: #064e3b;
+  --color-emerald-deep: #022c22;
+  --color-emerald-dark: #033a2a;
+  --color-emerald-light: #0d6e53;
+  --color-emerald-vibrant: #059669;
+  --color-emerald-surface: rgba(6, 78, 59, 0.06);
+  --color-emerald-glow: rgba(6, 78, 59, 0.2);
+
+  /* Aliases for 100% component compatibility */
+  --color-forest: var(--color-emerald);
+  --color-forest-dark: var(--color-emerald-deep);
+  --color-forest-light: var(--color-emerald-light);
+  --color-forest-muted: #3a5c4e;
+  --color-forest-surface: var(--color-emerald-surface);
 
   /* Secondary: Royal Gold & Zari Palette */
   --color-gold: #c59b27;
   --color-gold-bright: #d4af37;
   --color-gold-dark: #99730d;
-  --color-gold-light: #eccd73;
+  --color-gold-light: #f5df9e;
   --color-gold-surface: rgba(197, 155, 39, 0.08);
-  --color-gold-glow: rgba(197, 155, 39, 0.2);
+  --color-gold-glow: rgba(212, 175, 55, 0.25);
 
   /* Gradients */
-  --gradient-gold: linear-gradient(135deg, #e8c86d 0%, #c59b27 50%, #99730d 100%);
-  --gradient-gold-text: linear-gradient(135deg, #a87e14 0%, #c59b27 45%, #7a5905 100%);
-  --gradient-forest: linear-gradient(135deg, #072216 0%, #0c3624 60%, #185238 100%);
-  --gradient-hero-light: radial-gradient(circle at 50% 10%, #f7f4ec 0%, #ffffff 75%);
+  --gradient-gold: linear-gradient(135deg, #f7e2a8 0%, #d4af37 45%, #a87e14 100%);
+  --gradient-gold-text: linear-gradient(135deg, #99730d 0%, #c59b27 45%, #7a5905 100%);
+  --gradient-emerald: linear-gradient(135deg, #022c22 0%, #064e3b 55%, #0a664d 100%);
+  --gradient-forest: var(--gradient-emerald);
+  --gradient-hero-light: radial-gradient(ellipse at 50% 0%, #f0f7f3 0%, #ffffff 75%);
 
-  /* Text & Readability */
-  --text-primary: #082115;
-  --text-secondary: #273830;
-  --text-muted: #576d62;
-  --text-dim: #7f948a;
-  --text-on-dark: #faf8f5;
+  /* Text & Readability (Ultra-crisp, high contrast like The Ruh) */
+  --text-primary: #0a1f16;
+  --text-secondary: #22382e;
+  --text-muted: #536c61;
+  --text-dim: #7c9489;
+  --text-on-dark: #fbfdfc;
 
   /* Borders & Dividers */
-  --border-light: rgba(12, 54, 36, 0.12);
-  --border-gold: rgba(197, 155, 39, 0.35);
-  --border-card: rgba(12, 54, 36, 0.1);
+  --border-light: rgba(6, 78, 59, 0.1);
+  --border-gold: rgba(197, 155, 39, 0.38);
+  --border-card: #e8ebe9;
 
   /* Shadows */
-  --shadow-sm: 0 2px 8px rgba(12, 54, 36, 0.05);
-  --shadow-card: 0 4px 20px rgba(12, 54, 36, 0.07);
-  --shadow-card-hover: 0 14px 34px rgba(12, 54, 36, 0.14), 0 0 15px rgba(197, 155, 39, 0.15);
-  --shadow-drawer: -10px 0 40px rgba(0, 0, 0, 0.15);
+  --shadow-sm: 0 2px 8px rgba(6, 78, 59, 0.04);
+  --shadow-card: 0 4px 20px rgba(6, 78, 59, 0.06);
+  --shadow-card-hover: 0 12px 32px rgba(6, 78, 59, 0.12), 0 0 15px rgba(197, 155, 39, 0.16);
+  --shadow-drawer: -10px 0 40px rgba(2, 44, 34, 0.15);
 
   /* Helper / Footer Dark Section Tokens */
-  --cream-soft: #faf8f5;
-  --cream-muted: #c8d8ce;
+  --cream-soft: #fbfdfc;
+  --cream-muted: #c1d4cb;
   --gold-primary: #c59b27;
-  --gold-light: #eccd73;
+  --gold-light: #f5df9e;
 
   /* Typography */
   --font-serif-royal: 'Cinzel', serif;
@@ -68,42 +81,50 @@
    DARK THEME OVERRIDE (For users who prefer dark mode)
    ==================================================== */
 [data-theme='dark'] {
-  --bg-primary: #051910;
-  --bg-secondary: #082317;
-  --bg-tertiary: #0c3021;
-  --bg-surface: #0a261a;
-  --bg-surface-elevated: #0f3525;
-  --bg-surface-glass: rgba(10, 38, 26, 0.9);
-  --bg-surface-hover: #154531;
-  --bg-subtle-green: rgba(20, 73, 51, 0.3);
+  --bg-primary: #031c13;
+  --bg-secondary: #05261b;
+  --bg-tertiary: #083324;
+  --bg-surface: #062b1f;
+  --bg-surface-elevated: #0a3d2c;
+  --bg-surface-glass: rgba(6, 43, 31, 0.92);
+  --bg-surface-hover: #0d4a36;
+  --bg-subtle-green: rgba(13, 110, 83, 0.25);
 
-  --color-forest: #144933;
-  --color-forest-dark: #051910;
-  --color-forest-light: #1d6144;
-  --color-forest-muted: #7fa490;
-  --color-forest-surface: rgba(20, 73, 51, 0.25);
+  --color-emerald: #10b981;
+  --color-emerald-deep: #022c22;
+  --color-emerald-dark: #05261b;
+  --color-emerald-light: #34d399;
+  --color-emerald-vibrant: #10b981;
+  --color-emerald-surface: rgba(16, 185, 129, 0.15);
+
+  --color-forest: var(--color-emerald);
+  --color-forest-dark: var(--color-emerald-dark);
+  --color-forest-light: var(--color-emerald-light);
+  --color-forest-muted: #80b09a;
+  --color-forest-surface: var(--color-emerald-surface);
 
   --color-gold: #d4af37;
   --color-gold-bright: #fcedc7;
   --color-gold-dark: #a8841a;
   --color-gold-light: #fff2c6;
-  --color-gold-surface: rgba(212, 175, 55, 0.15);
-  --color-gold-glow: rgba(212, 175, 55, 0.3);
+  --color-gold-surface: rgba(212, 175, 55, 0.18);
+  --color-gold-glow: rgba(212, 175, 55, 0.35);
 
   --gradient-gold: linear-gradient(135deg, #fff2c6 0%, #e5c158 35%, #d4af37 60%, #a47e12 100%);
   --gradient-gold-text: linear-gradient(135deg, #fff6d9 0%, #ecc866 30%, #d4af37 70%, #9e7912 100%);
-  --gradient-forest: linear-gradient(135deg, #051910 0%, #0a261a 60%, #0f3525 100%);
-  --gradient-hero-light: radial-gradient(circle at 50% 10%, #0d3424 0%, #051910 75%);
+  --gradient-emerald: linear-gradient(135deg, #022c22 0%, #064e3b 60%, #0a664d 100%);
+  --gradient-forest: var(--gradient-emerald);
+  --gradient-hero-light: radial-gradient(circle at 50% 10%, #0a3d2c 0%, #031c13 75%);
 
   --text-primary: #fcfaf5;
   --text-secondary: #e6dfd3;
-  --text-muted: #a7baaF;
+  --text-muted: #a7baaf;
   --text-dim: #7f9588;
   --text-on-dark: #faf8f5;
 
-  --border-light: rgba(212, 175, 55, 0.2);
-  --border-gold: rgba(212, 175, 55, 0.4);
-  --border-card: rgba(212, 175, 55, 0.22);
+  --border-light: rgba(212, 175, 55, 0.22);
+  --border-gold: rgba(212, 175, 55, 0.45);
+  --border-card: rgba(212, 175, 55, 0.25);
 
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
   --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.45);
@@ -371,7 +392,7 @@ img, video {
   justify-content: center;
   gap: 8px;
   background: var(--gradient-gold);
-  color: #072216;
+  color: #022c22;
   font-family: var(--font-sans);
   font-weight: 700;
   font-size: 0.88rem;
@@ -392,12 +413,12 @@ img, video {
   filter: brightness(1.04);
 }
 
-.btn-forest {
+.btn-forest, .btn-emerald {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background: var(--color-forest);
+  background: var(--color-emerald);
   color: #ffffff;
   font-family: var(--font-sans);
   font-weight: 600;
@@ -405,17 +426,18 @@ img, video {
   letter-spacing: 0.03em;
   padding: 11px 22px;
   border-radius: 9999px;
-  border: none;
+  border: 1px solid rgba(212, 175, 55, 0.4);
   cursor: pointer;
-  box-shadow: 0 4px 16px rgba(12, 54, 36, 0.25);
+  box-shadow: 0 4px 16px rgba(6, 78, 59, 0.25);
   transition: all 0.25s ease;
   text-decoration: none;
 }
 
-.btn-forest:hover {
-  background: var(--color-forest-dark);
+.btn-forest:hover, .btn-emerald:hover {
+  background: var(--color-emerald-deep);
   transform: translateY(-2px);
-  box-shadow: 0 6px 22px rgba(12, 54, 36, 0.35);
+  box-shadow: 0 6px 22px rgba(6, 78, 59, 0.35);
+  border-color: var(--color-gold);
 }
 
 .btn-whatsapp {
@@ -423,7 +445,7 @@ img, video {
   align-items: center;
   justify-content: center;
   gap: 7px;
-  background: #16a34a;
+  background: #0d7a4d;
   color: #ffffff;
   font-family: var(--font-sans);
   font-weight: 700;
@@ -434,13 +456,13 @@ img, video {
   cursor: pointer;
   transition: all 0.25s ease;
   text-decoration: none;
-  box-shadow: 0 4px 14px rgba(22, 163, 74, 0.25);
+  box-shadow: 0 4px 14px rgba(13, 122, 77, 0.25);
 }
 
 .btn-whatsapp:hover {
-  background: #15803d;
+  background: #095938;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(22, 163, 74, 0.35);
+  box-shadow: 0 6px 20px rgba(13, 122, 77, 0.35);
 }
 
 /* Card Styling */

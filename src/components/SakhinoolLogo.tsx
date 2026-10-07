@@ -186,7 +186,7 @@ export default function SakhinoolLogo({
           <span className="divider-line" />
           <svg width="18" height="12" viewBox="0 0 24 16" fill={goldPrimary} className="lotus-icon">
             <path d="M 12 0 C 13 5, 17 8, 22 10 C 16 11, 13 14, 12 16 C 11 14, 8 11, 2 10 C 7 8, 11 5, 12 0 Z" />
-            <circle cx="12" cy="7" r="1.5" fill={isDark ? "#fff5d1" : "#0c3624"} />
+            <circle cx="12" cy="7" r="1.5" fill={isDark ? "#fff5d1" : "#064e3b"} />
           </svg>
           <span className="divider-line" />
         </div>

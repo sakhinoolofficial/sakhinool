@@ -1205,7 +1205,7 @@
   position: relative;
   aspect-ratio: 3/4;
   overflow: hidden;
-  background: #f7f4ed;
+  background: #f2f7f4;
   width: 100%;
 }
 
@@ -1544,7 +1544,7 @@
   height: 100%;
   min-height: 360px;
   position: relative;
-  background: #f7f4ed;
+  background: #f2f7f4;
   width: 100%;
 }
 
@@ -1598,7 +1598,7 @@
   position: relative;
   border-radius: 18px;
   overflow: hidden;
-  background: #f7f4ed;
+  background: #f2f7f4;
   border: 1px solid var(--border-gold);
   box-shadow: var(--shadow-card);
   width: 100%;
@@ -1808,7 +1808,7 @@
   position: relative;
   border-radius: 18px;
   overflow: hidden;
-  background: #f7f4ed;
+  background: #f2f7f4;
   border: 1px solid var(--border-gold);
   box-shadow: var(--shadow-card);
   width: 100%;
@@ -2264,15 +2264,15 @@
    12. FOOTER
    ---------------------------------------------------- */
 .footer-root {
-  background: #031109;
+  background: #022318;
   color: var(--cream-soft);
-  border-top: 1px solid rgba(212, 175, 55, 0.25);
+  border-top: 1px solid rgba(212, 175, 55, 0.3);
   position: relative;
   width: 100%;
 }
 
 .newsletter-strip {
-  background: linear-gradient(180deg, #072216 0%, #051910 100%);
+  background: linear-gradient(180deg, #032e20 0%, #022318 100%);
   border-bottom: 1px solid rgba(212, 175, 55, 0.2);
   padding: 40px 0;
   width: 100%;
@@ -2315,7 +2315,7 @@
 
 .strip-input {
   flex: 1;
-  background: #031109;
+  background: #022318;
   border: 1px solid rgba(212, 175, 55, 0.35);
   padding: 12px 18px;
   border-radius: 9999px;
@@ -2810,7 +2810,7 @@
   height: 88px;
   border-radius: 8px;
   overflow: hidden;
-  background: #f7f4ed;
+  background: #f2f7f4;
   flex-shrink: 0;
 }
 
@@ -3216,7 +3216,7 @@
   height: 64px;
   border-radius: 6px;
   overflow: hidden;
-  background: #f7f4ed;
+  background: #f2f7f4;
   flex-shrink: 0;
 }
 
@@ -3337,7 +3337,7 @@
   border-radius: 14px;
   overflow: hidden;
   aspect-ratio: 3/4;
-  background: #f7f4ed;
+  background: #f2f7f4;
   border: 1px solid var(--border-light);
 }
 
