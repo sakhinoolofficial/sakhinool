@@ -1,7 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
 import { Sparkles, MessageCircle, ArrowRight, ShieldCheck, Gift, Truck, Award } from 'lucide-react';
-import SakhinoolLogo from './SakhinoolLogo';
 
 interface HeroProps {
   onExploreClick: () => void;
@@ -18,10 +17,6 @@ export default function Hero({ onExploreClick }: HeroProps) {
               <Sparkles size={13} className="text-gold" />
               <span>HANDLOOMS OF GOD’S OWN COUNTRY</span>
             </span>
-          </div>
-
-          <div className="hero-logo-showcase desktop-only">
-            <SakhinoolLogo variant="full" size="md" />
           </div>
 
           <h1 className="hero-headline font-royal">

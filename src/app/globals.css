@@ -8,13 +8,13 @@
      - Secondary Accents: Royal Emerald Green (#064e3b) & Regal Gold (#c59b27 / #d4af37)
      ==================================================== */
   --bg-primary: #ffffff;
-  --bg-secondary: #fafcfa;
-  --bg-tertiary: #f4f8f5;
+  --bg-secondary: #fbfdfc;
+  --bg-tertiary: #f7faf8;
   --bg-surface: #ffffff;
   --bg-surface-elevated: #ffffff;
-  --bg-surface-glass: rgba(255, 255, 255, 0.95);
-  --bg-surface-hover: #f0f7f3;
-  --bg-subtle-green: #eaf4ef;
+  --bg-surface-glass: rgba(255, 255, 255, 0.96);
+  --bg-surface-hover: #f5f9f6;
+  --bg-subtle-green: rgba(6, 78, 59, 0.03);
 
   /* Secondary: Royal Emerald Green Palette */
   --color-emerald: #064e3b;
@@ -22,8 +22,8 @@
   --color-emerald-dark: #033a2a;
   --color-emerald-light: #0d6e53;
   --color-emerald-vibrant: #059669;
-  --color-emerald-surface: rgba(6, 78, 59, 0.06);
-  --color-emerald-glow: rgba(6, 78, 59, 0.2);
+  --color-emerald-surface: rgba(6, 78, 59, 0.04);
+  --color-emerald-glow: rgba(6, 78, 59, 0.15);
 
   /* Aliases for 100% component compatibility */
   --color-forest: var(--color-emerald);
@@ -37,32 +37,32 @@
   --color-gold-bright: #d4af37;
   --color-gold-dark: #99730d;
   --color-gold-light: #f5df9e;
-  --color-gold-surface: rgba(197, 155, 39, 0.08);
-  --color-gold-glow: rgba(212, 175, 55, 0.25);
+  --color-gold-surface: rgba(197, 155, 39, 0.07);
+  --color-gold-glow: rgba(212, 175, 55, 0.2);
 
   /* Gradients */
   --gradient-gold: linear-gradient(135deg, #f7e2a8 0%, #d4af37 45%, #a87e14 100%);
   --gradient-gold-text: linear-gradient(135deg, #99730d 0%, #c59b27 45%, #7a5905 100%);
   --gradient-emerald: linear-gradient(135deg, #022c22 0%, #064e3b 55%, #0a664d 100%);
   --gradient-forest: var(--gradient-emerald);
-  --gradient-hero-light: radial-gradient(ellipse at 50% 0%, #f0f7f3 0%, #ffffff 75%);
+  --gradient-hero-light: linear-gradient(180deg, #ffffff 0%, #fbfdfc 60%, #f7faf8 100%);
 
   /* Text & Readability (Ultra-crisp, high contrast like The Ruh) */
-  --text-primary: #0a1f16;
-  --text-secondary: #22382e;
-  --text-muted: #536c61;
-  --text-dim: #7c9489;
+  --text-primary: #111e17;
+  --text-secondary: #273b31;
+  --text-muted: #5e7368;
+  --text-dim: #889e93;
   --text-on-dark: #fbfdfc;
 
   /* Borders & Dividers */
-  --border-light: rgba(6, 78, 59, 0.1);
-  --border-gold: rgba(197, 155, 39, 0.38);
-  --border-card: #e8ebe9;
+  --border-light: rgba(0, 0, 0, 0.06);
+  --border-gold: rgba(197, 155, 39, 0.22);
+  --border-card: rgba(0, 0, 0, 0.05);
 
   /* Shadows */
-  --shadow-sm: 0 2px 8px rgba(6, 78, 59, 0.04);
-  --shadow-card: 0 4px 20px rgba(6, 78, 59, 0.06);
-  --shadow-card-hover: 0 12px 32px rgba(6, 78, 59, 0.12), 0 0 15px rgba(197, 155, 39, 0.16);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.03);
+  --shadow-card: 0 4px 20px rgba(6, 78, 59, 0.04);
+  --shadow-card-hover: 0 12px 32px rgba(6, 78, 59, 0.08), 0 0 15px rgba(197, 155, 39, 0.12);
   --shadow-drawer: -10px 0 40px rgba(2, 44, 34, 0.15);
 
   /* Helper / Footer Dark Section Tokens */
@@ -232,6 +232,7 @@ img, video {
 }
 
 /* Brand Logo Styles */
+/* Brand Logo Styles */
 .sakhinool-brand-container {
   display: flex;
   flex-direction: column;
@@ -250,46 +251,100 @@ img, video {
 }
 
 .sakhinool-brand-container:hover .sakhinool-brand-icon-wrap {
-  transform: translateY(-2px) scale(1.03);
+  transform: translateY(-2px) scale(1.04);
 }
 
 .sakhinool-brand-text-wrap {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: -5px;
 }
 
-.sakhinool-title-row {
-  display: flex;
-  align-items: baseline;
-  justify-content: center;
+.sakhinool-wordmark-full {
   font-family: var(--font-serif-royal);
-  font-size: 1.75rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  font-size: 1.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
   color: var(--color-forest);
+  text-transform: uppercase;
+  margin: 6px 0 3px;
   line-height: 1.1;
   transition: color 0.3s ease;
 }
 
-[data-theme='dark'] .sakhinool-title-row,
-.sakhinool-brand-container.theme-dark .sakhinool-title-row,
-.sakhinool-compact-brand.theme-dark .sakhinool-title-row {
+[data-theme='dark'] .sakhinool-wordmark-full,
+.sakhinool-brand-container.theme-dark .sakhinool-wordmark-full {
   color: var(--color-gold);
   background: var(--gradient-gold-text);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
+.sakhinool-gold-rule {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  max-width: 170px;
+  margin: 4px 0 6px 0;
+}
+
+.sakhinool-gold-rule .rule-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(197, 155, 39, 0.4), transparent);
+}
+
+.sakhinool-gold-rule .rule-diamond {
+  font-size: 0.48rem;
+  color: var(--color-gold);
+}
+
+.sakhinool-tagline {
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: var(--color-forest);
+  text-transform: uppercase;
+  margin-top: 1px;
+  opacity: 0.88;
+}
+
+[data-theme='dark'] .sakhinool-tagline,
+.sakhinool-brand-container.theme-dark .sakhinool-tagline {
+  color: var(--color-gold-light);
+}
+
+.sakhinool-sub-brand {
+  font-family: var(--font-sans);
+  font-size: 0.54rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  color: var(--color-gold-dark);
+  text-transform: uppercase;
+  margin-top: 3px;
+}
+
+[data-theme='dark'] .sakhinool-sub-brand,
+.sakhinool-brand-container.theme-dark .sakhinool-sub-brand {
+  color: var(--color-gold-bright);
+}
+
 /* Compact Brand (Navbar & Mobile Header) */
 .sakhinool-compact-brand {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 9px;
   text-decoration: none;
   cursor: pointer;
   user-select: none;
+  transition: transform 0.2s ease;
+}
+
+.sakhinool-compact-brand:hover {
+  transform: translateY(-1px);
 }
 
 .sakhinool-compact-icon {
@@ -306,83 +361,19 @@ img, video {
   line-height: 1;
 }
 
-.sakhinool-compact-brand .sakhinool-title-row {
-  font-size: 1.32rem;
-  letter-spacing: 0.05em;
-  margin: 0;
-}
-
-.sakhinool-malayalam-script {
-  font-size: 0.62rem;
-  font-weight: 700;
-  color: var(--color-gold);
-  letter-spacing: 0.08em;
-  margin-top: 1px;
-}
-
-.sakhinool-title-serif {
-  display: inline-block;
-}
-
-.sakhinool-infinity-oo {
-  display: inline-flex;
-  position: relative;
-  letter-spacing: -0.18em;
-  margin: 0 0.08em;
-  color: var(--color-gold);
-}
-
-.oo-loop-1, .oo-loop-2 {
-  display: inline-block;
+.sakhinool-wordmark {
   font-family: var(--font-serif-royal);
-  transform: scaleY(0.95);
-}
-
-.sakhinool-lotus-divider {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  width: 100%;
-  max-width: 200px;
-  margin: 3px 0 2px 0;
-}
-
-.sakhinool-lotus-divider .divider-line {
-  flex: 1;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
-}
-
-.sakhinool-tagline {
-  font-family: var(--font-sans);
-  font-size: 0.6rem;
-  font-weight: 700;
-  letter-spacing: 0.22em;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
   color: var(--color-forest);
   text-transform: uppercase;
-  margin-top: 1px;
-  opacity: 0.9;
+  line-height: 1;
 }
 
-[data-theme='dark'] .sakhinool-tagline,
-.sakhinool-brand-container.theme-dark .sakhinool-tagline {
-  color: var(--color-gold-bright);
-}
-
-.sakhinool-category-dots {
-  font-family: var(--font-sans);
-  font-size: 0.56rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  color: var(--color-gold-dark);
-  text-transform: uppercase;
-  margin-top: 1px;
-}
-
-[data-theme='dark'] .sakhinool-category-dots,
-.sakhinool-brand-container.theme-dark .sakhinool-category-dots {
-  color: var(--color-gold-light);
+[data-theme='dark'] .sakhinool-wordmark,
+.sakhinool-compact-brand.theme-dark .sakhinool-wordmark {
+  color: var(--color-gold);
 }
 
 /* Luxury Buttons */
@@ -482,54 +473,53 @@ img, video {
   transform: translateY(-4px);
 }
 
-/* Badges */
+/* Badges - Refined Luxury Aesthetic */
 .badge-gold {
-  background: var(--color-gold-surface);
-  border: 1px solid var(--border-gold);
+  background: rgba(197, 155, 39, 0.08);
+  border: 1px solid rgba(197, 155, 39, 0.28);
   color: var(--color-gold-dark);
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  padding: 3px 9px;
+  padding: 4px 10px;
   border-radius: 9999px;
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 5px;
 }
 
 [data-theme='dark'] .badge-gold {
   color: var(--color-gold-bright);
+  background: rgba(212, 175, 55, 0.15);
+  border-color: rgba(212, 175, 55, 0.4);
 }
 
 .badge-kerala {
-  background: var(--color-forest-surface);
-  border: 1px solid var(--border-light);
+  background: rgba(6, 78, 59, 0.04);
+  border: 1px solid rgba(197, 155, 39, 0.28);
   color: var(--color-forest);
-  font-size: 0.7rem;
-  font-weight: 700;
-  padding: 3px 9px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 4px 10px;
   border-radius: 9999px;
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 5px;
 }
 
 [data-theme='dark'] .badge-kerala {
-  color: #86efac;
+  color: #a7f3d0;
+  background: rgba(6, 78, 59, 0.25);
 }
 
-/* Kerala Traditional Kasavu Ribbon */
+/* Kerala Traditional Kasavu Ribbon - Replaced with refined border */
 .kasavu-stripe {
-  height: 3px;
-  background: repeating-linear-gradient(
-    90deg,
-    var(--color-gold) 0px,
-    var(--color-gold-bright) 6px,
-    var(--color-gold-dark) 12px,
-    var(--color-forest) 13px
-  );
-  width: 100%;
+  display: none !important;
+  height: 0 !important;
+  opacity: 0;
 }
 
 /* Drawers & Modals */

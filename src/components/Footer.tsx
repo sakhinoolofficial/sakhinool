@@ -7,9 +7,6 @@ import { KERALA_DISTRICTS } from '../data/sarees';
 export default function Footer() {
   return (
     <footer className="footer-root">
-      {/* Kasavu Gold Border Stripe */}
-      <div className="kasavu-stripe" />
-
       {/* VIP Club Signup Strip */}
       <div className="newsletter-strip">
         <div className="container-custom strip-inner">

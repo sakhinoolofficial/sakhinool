@@ -22,24 +22,24 @@ export default function SakhinoolLogo({
 
   // Brand Colors based on theme
   const goldPrimary = isDark ? '#d4af37' : '#c59b27';
-  const goldLight = isDark ? '#fff2c6' : '#eac56a';
-  const goldDark = isDark ? '#9e7912' : '#8d680d';
+  const goldLight = isDark ? '#fff2c6' : '#eec96d';
+  const goldDark = isDark ? '#a8841a' : '#8d680d';
 
   const iconSizes = {
-    sm: 34,
-    md: 46,
-    lg: 68,
-    xl: 90
+    sm: 26,
+    md: 36,
+    lg: 48,
+    xl: 64
   };
 
   const iconSize = iconSizes[size];
 
-  // Stylized SVG Woman & Thread Monogram matching user's packaging
+  // Refined Minimalist Golden Monogram: Intertwined Silk Thread & Regal 'S'
   const MonogramSvg = (
     <svg
       width={iconSize}
-      height={iconSize * 1.3}
-      viewBox="0 0 100 130"
+      height={iconSize * 1.15}
+      viewBox="0 0 40 46"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className="sakhinool-monogram-svg"
@@ -53,83 +53,39 @@ export default function SakhinoolLogo({
         </linearGradient>
       </defs>
 
-      <g>
-        {/* Needle Top Eye Flourish */}
-        <path
-          d="M 68 8 C 70 5, 73 5, 75 7 C 77 9, 75 14, 71 18 L 60 28"
-          stroke={`url(#goldGradLogo-${size}-${currentTheme})`}
-          strokeWidth="2.2"
-          strokeLinecap="round"
-          fill="none"
-        />
-        <circle cx="73" cy="8" r="1.5" fill={goldPrimary} />
-        
-        {/* The Thread looping through needle */}
-        <path
-          d="M 72 9 C 62 14, 52 10, 44 18 C 34 27, 36 38, 48 37 C 62 36, 76 46, 68 64 C 61 78, 44 82, 38 88"
-          stroke={`url(#goldGradLogo-${size}-${currentTheme})`}
-          strokeWidth="1.8"
-          strokeLinecap="round"
-          fill="none"
-        />
+      {/* Top Thread Needle Eye */}
+      <circle cx="20" cy="4" r="2.2" stroke={`url(#goldGradLogo-${size}-${currentTheme})`} strokeWidth="1.2" fill="none" />
+      <circle cx="20" cy="4" r="0.8" fill={goldPrimary} />
 
-        {/* Graceful Profile: Head & Forehead & Nose */}
-        <path
-          d="M 45 35 C 44 32, 43 27, 47 23 C 51 19, 56 22, 56 25 C 56 28, 54 30, 52 32 C 49 34, 46 36, 45 40 C 44 43, 44 45, 41 47 C 39 48, 38 50, 39 52 C 41 54, 44 55, 46 56 C 45 59, 43 61, 41 63 C 39 65, 36 67, 34 71"
-          stroke={`url(#goldGradLogo-${size}-${currentTheme})`}
-          strokeWidth="2.6"
-          strokeLinecap="round"
-          fill="none"
-        />
+      {/* Graceful S-Thread Contour */}
+      <path
+        d="M 20 6.2 C 20 10, 29 11, 29 17 C 29 23, 11 22, 11 29 C 11 36, 28 37, 26 43"
+        stroke={`url(#goldGradLogo-${size}-${currentTheme})`}
+        strokeWidth="2.2"
+        strokeLinecap="round"
+        fill="none"
+      />
 
-        {/* Traditional Earring (Jhumka) */}
-        <path
-          d="M 46 38 L 47 43 M 44 43 Q 47 46 50 43 Z"
-          fill={`url(#goldGradLogo-${size}-${currentTheme})`}
-          stroke={`url(#goldGradLogo-${size}-${currentTheme})`}
-          strokeWidth="1"
-        />
+      {/* Echo Harmony Thread (Kasavu Weft) */}
+      <path
+        d="M 15 13 C 18 10, 24 10, 26 13"
+        stroke={`url(#goldGradLogo-${size}-${currentTheme})`}
+        strokeWidth="1.2"
+        strokeLinecap="round"
+        fill="none"
+        opacity="0.8"
+      />
+      <path
+        d="M 14 34 C 17 37, 23 37, 25 34"
+        stroke={`url(#goldGradLogo-${size}-${currentTheme})`}
+        strokeWidth="1.2"
+        strokeLinecap="round"
+        fill="none"
+        opacity="0.8"
+      />
 
-        {/* Ornate Traditional Kerala Kasavu Necklace Collar Detail */}
-        <path
-          d="M 33 72 C 37 68, 43 64, 49 63 C 53 62, 57 65, 59 69"
-          stroke={`url(#goldGradLogo-${size}-${currentTheme})`}
-          strokeWidth="2.4"
-          fill="none"
-        />
-        {/* Necklace Beads / Kasu dots */}
-        <g fill={`url(#goldGradLogo-${size}-${currentTheme})`}>
-          <circle cx="34" cy="74" r="1.5" />
-          <circle cx="38" cy="71" r="1.5" />
-          <circle cx="43" cy="69" r="1.5" />
-          <circle cx="48" cy="68" r="1.5" />
-          <circle cx="53" cy="69" r="1.5" />
-          <circle cx="58" cy="72" r="1.5" />
-        </g>
-        {/* Second layer necklace */}
-        <path
-          d="M 30 79 C 36 74, 44 71, 52 71 C 58 71, 62 76, 64 80"
-          stroke={`url(#goldGradLogo-${size}-${currentTheme})`}
-          strokeWidth="1.6"
-          strokeDasharray="2 3"
-          fill="none"
-        />
-
-        {/* Sweeping Majestic Calligraphic "S" Contour flowing downward */}
-        <path
-          d="M 58 26 C 68 28, 76 38, 72 50 C 68 62, 50 67, 44 75 C 38 84, 40 96, 52 101 C 63 105, 75 99, 78 88 C 79 84, 82 85, 80 89 C 75 106, 56 112, 42 106 C 28 99, 28 82, 38 71 C 45 64, 60 58, 62 48 C 64 39, 58 32, 48 31"
-          fill={`url(#goldGradLogo-${size}-${currentTheme})`}
-        />
-
-        {/* Decorative flourish at the base */}
-        <path
-          d="M 74 94 C 82 92, 88 97, 85 103 C 82 108, 76 106, 73 102"
-          stroke={`url(#goldGradLogo-${size}-${currentTheme})`}
-          strokeWidth="1.8"
-          strokeLinecap="round"
-          fill="none"
-        />
-      </g>
+      {/* Subtle Golden Thread Terminal Accent */}
+      <circle cx="26" cy="43" r="1.3" fill={goldPrimary} />
     </svg>
   );
 
@@ -148,15 +104,8 @@ export default function SakhinoolLogo({
           {MonogramSvg}
         </div>
         <div className="sakhinool-compact-text">
-          <div className="sakhinool-title-row">
-            <span className="sakhinool-title-serif">Sakhi</span>
-            <span className="sakhinool-title-serif">n</span>
-            <span className="sakhinool-infinity-oo" title="intertwined thread loops">
-              <span className="oo-loop-1">o</span>
-              <span className="oo-loop-2">o</span>
-            </span>
-            <span className="sakhinool-title-serif">l</span>
-          </div>
+          <span className="sakhinool-wordmark">SAKHINOOL</span>
+          <span className="sakhinool-sub-brand">K E R A L A</span>
         </div>
       </div>
     );
@@ -171,36 +120,23 @@ export default function SakhinoolLogo({
 
       {/* Brand Typography */}
       <div className="sakhinool-brand-text-wrap">
-        <div className="sakhinool-title-row">
-          <span className="sakhinool-title-serif">Sakhi</span>
-          <span className="sakhinool-title-serif">n</span>
-          <span className="sakhinool-infinity-oo" title="intertwined thread loops">
-            <span className="oo-loop-1">o</span>
-            <span className="oo-loop-2">o</span>
-          </span>
-          <span className="sakhinool-title-serif">l</span>
+        <span className="sakhinool-wordmark-full">SAKHINOOL</span>
+        
+        {/* Subtle Gold Hairline Divider */}
+        <div className="sakhinool-gold-rule">
+          <span className="rule-line" />
+          <span className="rule-diamond">◆</span>
+          <span className="rule-line" />
         </div>
 
-        {/* Golden Lotus Ornament & Rule Line */}
-        <div className="sakhinool-lotus-divider">
-          <span className="divider-line" />
-          <svg width="18" height="12" viewBox="0 0 24 16" fill={goldPrimary} className="lotus-icon">
-            <path d="M 12 0 C 13 5, 17 8, 22 10 C 16 11, 13 14, 12 16 C 11 14, 8 11, 2 10 C 7 8, 11 5, 12 0 Z" />
-            <circle cx="12" cy="7" r="1.5" fill={isDark ? "#fff5d1" : "#064e3b"} />
-          </svg>
-          <span className="divider-line" />
-        </div>
+        <span className="sakhinool-tagline">
+          WOVEN IN TRADITION &bull; STYLED FOR YOU
+        </span>
 
-        {/* Tagline */}
-        <div className="sakhinool-tagline">
-          WOVEN IN TRADITION, STYLED FOR YOU
-        </div>
-
-        {/* Subtitle category */}
         {variant === 'full' && (
-          <div className="sakhinool-category-dots">
-            • SAREES &amp; WOMEN’S WEAR •
-          </div>
+          <span className="sakhinool-sub-brand">
+            BALARAMAPURAM &bull; KANCHIPURAM &bull; HANDLOOMS
+          </span>
         )}
       </div>
     </div>
