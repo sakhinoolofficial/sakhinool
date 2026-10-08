@@ -25,28 +25,6 @@ export default function Navbar({
 
   return (
     <header className="sticky top-0 z-50 w-full header-root">
-      {/* Sleek Standardized Luxury Announcement Bar */}
-      <div className="top-announcement-bar">
-        <div className="container-custom announcement-inner">
-          <div className="announcement-center">
-            <span className="announcement-text">
-              COMPLIMENTARY SHIPPING ACROSS ALL 14 DISTRICTS OF KERALA &bull; SILK MARK CERTIFIED HANDLOOM
-            </span>
-          </div>
-          <div className="announcement-right desktop-only">
-            <a 
-              href="https://wa.me/917306045546?text=Namaskaram%20Sakhinool!%20I%20would%20like%20to%20connect%20with%20a%20saree%20stylist." 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="announcement-link"
-            >
-              <span className="online-dot" />
-              <span>Concierge: +91 7306045546</span>
-            </a>
-          </div>
-        </div>
-      </div>
-
       {/* Main Luxury Navigation Bar (Pure Canvas, 1px Hairline Border) */}
       <nav className="main-navbar">
         <div className="container-custom nav-container">

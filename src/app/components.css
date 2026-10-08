@@ -16,64 +16,6 @@
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.03);
 }
 
-/* 1. Sleek Announcement Bar */
-.top-announcement-bar {
-  background: var(--color-forest);
-  color: #f4faf6;
-  padding: 7px 16px;
-  width: 100%;
-  border-bottom: 1px solid rgba(197, 155, 39, 0.22);
-}
-
-.announcement-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.announcement-center {
-  flex: 1;
-  text-align: center;
-}
-
-.announcement-text {
-  font-size: 0.72rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  font-weight: 500;
-  color: #f4faf6;
-}
-
-.announcement-right {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-shrink: 0;
-}
-
-.announcement-link {
-  font-size: 0.72rem;
-  letter-spacing: 0.06em;
-  color: rgba(244, 250, 246, 0.9);
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  transition: color 0.2s;
-}
-
-.announcement-link:hover {
-  color: var(--color-gold-light);
-}
-
-.online-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #4ade80;
-  box-shadow: 0 0 6px #4ade80;
-}
 
 /* 2. Main Luxury Navigation Bar */
 .main-navbar {
@@ -304,16 +246,6 @@
   margin-top: 12px;
 }
 
-@media (max-width: 1024px) {
-  .announcement-inner {
-    justify-content: center;
-  }
-  .announcement-text {
-    font-size: 0.68rem;
-    letter-spacing: 0.08em;
-  }
-}
-
 @media (max-width: 520px) {
   .nav-container {
     padding-left: 12px;
@@ -325,13 +257,6 @@
   .nav-icon-btn {
     width: 35px;
     height: 35px;
-  }
-  .top-announcement-bar {
-    padding: 6px 10px;
-  }
-  .announcement-text {
-    font-size: 0.64rem;
-    letter-spacing: 0.06em;
   }
 }
 
