@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
-import KeralaDeliveryTicker from '../components/KeralaDeliveryTicker';
 import SareeMatcher from '../components/SareeMatcher';
 import SareeCard from '../components/SareeCard';
 import SareeModal from '../components/SareeModal';
@@ -167,9 +166,6 @@ function MainAppContent() {
           if (catElem) catElem.scrollIntoView({ behavior: 'smooth' });
         }}
       />
-
-      {/* Kerala Districts Live Ticker */}
-      <KeralaDeliveryTicker />
 
       {/* Interactive Saree Matcher */}
       <SareeMatcher
