@@ -24,7 +24,7 @@ export default function Hero({ onExploreClick }: HeroProps) {
           </h1>
 
           <p className="hero-description font-editorial">
-            <em>Sakhi</em> (companion) meets <em>Nool</em> (thread). Handcrafted with pure love for the women of Kerala, our sarees bring the regal majesty of Balaramapuram kasavu, Kanchipuram mulberry silks, and shimmering festive tissues directly to your doorstep.
+            Born from the sacred union of <em>Sakhi</em> (friend) and <em>Nool</em> (thread) — because every woman deserves a friend who understands her style, comfort, and journey. Handcrafted with love, we weave elegance into your moments with authentic Balaramapuram kasavu, Kanchipuram mulberry silks, and shimmering tissues.
           </p>
 
           {/* Quick CTA Actions */}

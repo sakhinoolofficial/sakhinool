@@ -38,7 +38,10 @@ export default function Footer() {
           <div className="footer-col brand-col">
             <SakhinoolLogo variant="full" size="md" forceTheme="dark" />
             <p className="footer-bio font-editorial">
-              Rooted in Kerala's living heritage, Sakhinool brings the sacred friendship of thread, handloom artisans, and timeless feminine grace together into each handpicked drape.
+              Born from the union of <em>Sakhi</em> (friend) and <em>Nool</em> (thread). We believe every woman deserves a friend who understands her style, comfort, and journey.
+            </p>
+            <p className="footer-bio-motto text-xs text-gold/90 font-royal tracking-widest mt-2">
+              Woven with Tradition. Styled with Care. Connected like Friends.
             </p>
             <div className="social-pills-row">
               <a

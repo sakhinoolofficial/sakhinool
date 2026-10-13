@@ -336,7 +336,7 @@ img, video {
 .sakhinool-compact-brand {
   display: inline-flex;
   align-items: center;
-  gap: 9px;
+  gap: 10px;
   text-decoration: none;
   cursor: pointer;
   user-select: none;
@@ -359,6 +359,79 @@ img, video {
   flex-direction: column;
   align-items: flex-start;
   line-height: 1;
+}
+
+.sakhinool-wordmark-styled {
+  font-family: var(--font-serif-royal);
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #002e23;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+}
+
+[data-theme='dark'] .sakhinool-wordmark-styled,
+.sakhinool-compact-brand.theme-dark .sakhinool-wordmark-styled {
+  color: #fbfdfc;
+}
+
+/* Full Brand Presentation */
+.sakhinool-wordmark-styled-full {
+  font-family: var(--font-serif-royal);
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #002e23;
+  line-height: 1.1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+
+[data-theme='dark'] .sakhinool-wordmark-styled-full,
+.sakhinool-brand-container.theme-dark .sakhinool-wordmark-styled-full {
+  color: #fbfdfc;
+}
+
+.sakhinool-official-tagline {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: #002e23;
+  text-transform: uppercase;
+  margin: 3px 0;
+  opacity: 0.88;
+}
+
+[data-theme='dark'] .sakhinool-official-tagline,
+.sakhinool-brand-container.theme-dark .sakhinool-official-tagline {
+  color: var(--color-gold-bright);
+}
+
+.sakhinool-lotus-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sakhinool-category-tag {
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  color: #002e23;
+  text-transform: uppercase;
+  margin-top: 2px;
+  opacity: 0.75;
+}
+
+[data-theme='dark'] .sakhinool-category-tag,
+.sakhinool-brand-container.theme-dark .sakhinool-category-tag {
+  color: rgba(255, 255, 255, 0.75);
 }
 
 .sakhinool-wordmark {

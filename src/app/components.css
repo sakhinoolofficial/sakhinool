@@ -1604,6 +1604,367 @@
   color: var(--text-muted);
 }
 
+/* Brand Formula Equation Strip */
+.brand-formula-strip {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-gold);
+  border-radius: 16px;
+  padding: 14px 20px;
+  margin-top: 14px;
+}
+
+.formula-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.formula-title {
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #002e23;
+}
+
+[data-theme='dark'] .formula-title {
+  color: var(--color-gold-bright);
+}
+
+.formula-desc {
+  font-family: var(--font-serif-editorial);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.formula-op {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-gold);
+}
+
+.highlight-formula {
+  background: rgba(197, 155, 39, 0.1);
+  padding: 5px 12px;
+  border-radius: 8px;
+  border: 1px dashed var(--color-gold);
+}
+
+/* ====================================================
+   LOGO DECODED & BRAND PILLARS (OFFICIAL BRAND SHEET)
+   ==================================================== */
+.logo-decoded-container {
+  margin-top: 60px;
+  padding-top: 50px;
+  border-top: 1px solid var(--border-light);
+  width: 100%;
+}
+
+.decoded-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 36px auto;
+}
+
+.decoded-header h3 {
+  font-size: 2.2rem;
+  color: var(--color-forest);
+  margin-top: 8px;
+  line-height: 1.25;
+}
+
+[data-theme='dark'] .decoded-header h3 {
+  color: var(--text-primary);
+}
+
+.decoded-header p {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-top: 8px;
+}
+
+.decoded-main-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.45fr);
+  gap: 36px;
+  align-items: center;
+  width: 100%;
+}
+
+.decoded-showcase-box {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-gold);
+  border-radius: 24px;
+  padding: 36px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: var(--shadow-card);
+  position: relative;
+  overflow: hidden;
+}
+
+.decoded-showcase-inner {
+  padding: 16px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  border-radius: 18px;
+  margin-bottom: 20px;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.decoded-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  width: 100%;
+}
+
+.decoded-card-item {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  padding: 18px 20px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.decoded-card-item:hover {
+  border-color: var(--color-gold);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(197, 155, 39, 0.12);
+}
+
+.decoded-card-item.active-element {
+  background: rgba(6, 78, 59, 0.05);
+  border-color: var(--color-forest);
+  box-shadow: 0 6px 20px rgba(6, 78, 59, 0.1);
+  transform: translateY(-2px);
+}
+
+[data-theme='dark'] .decoded-card-item.active-element {
+  background: rgba(212, 175, 55, 0.1);
+  border-color: var(--color-gold-bright);
+}
+
+.decoded-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.decoded-card-title {
+  font-family: var(--font-sans);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--color-forest);
+  text-transform: uppercase;
+}
+
+[data-theme='dark'] .decoded-card-title {
+  color: var(--color-gold-bright);
+}
+
+.decoded-card-subtitle {
+  font-family: var(--font-serif-royal);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-gold);
+  margin-bottom: 6px;
+}
+
+.decoded-card-desc {
+  font-family: var(--font-serif-editorial);
+  font-size: 0.86rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+/* Brand Pillars Section */
+.pillars-section {
+  margin-top: 60px;
+  width: 100%;
+}
+
+.pillars-header {
+  text-align: center;
+  max-width: 580px;
+  margin: 0 auto 30px auto;
+}
+
+.pillars-header h3 {
+  font-size: 2rem;
+  color: var(--color-forest);
+  margin-top: 6px;
+}
+
+[data-theme='dark'] .pillars-header h3 {
+  color: var(--text-primary);
+}
+
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
+  width: 100%;
+}
+
+.pillar-card-box {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: 18px;
+  padding: 22px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all 0.25s ease;
+}
+
+.pillar-card-box:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-gold);
+  box-shadow: 0 8px 24px rgba(197, 155, 39, 0.15);
+}
+
+.pillar-icon-circle {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-forest);
+  margin-bottom: 14px;
+}
+
+[data-theme='dark'] .pillar-icon-circle {
+  color: var(--color-gold);
+  background: rgba(212, 175, 55, 0.1);
+}
+
+.pillar-box-title {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-forest);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+[data-theme='dark'] .pillar-box-title {
+  color: var(--color-gold-bright);
+}
+
+.pillar-box-subtitle {
+  font-family: var(--font-serif-royal);
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--color-gold);
+  margin-bottom: 8px;
+}
+
+.pillar-box-desc {
+  font-family: var(--font-serif-editorial);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+/* Brand Essence Signature Banner */
+.brand-essence-banner {
+  margin-top: 50px;
+  padding: 32px 24px;
+  border-radius: 24px;
+  background: #002e23;
+  color: #ffffff;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 46, 35, 0.25);
+  border: 1px solid rgba(197, 155, 39, 0.35);
+}
+
+.essence-values-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-bottom: 18px;
+}
+
+.essence-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #f7e2a8;
+  text-transform: uppercase;
+}
+
+.essence-separator {
+  color: #c59b27;
+  font-size: 0.9rem;
+}
+
+.essence-divider-line {
+  width: 90px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #c59b27, transparent);
+  margin: 0 auto 16px auto;
+}
+
+.brand-motto-text {
+  font-family: var(--font-serif-royal);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: #fef3c7;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1024px) {
+  .decoded-main-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .pillars-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 680px) {
+  .decoded-cards-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .pillars-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .essence-values-row {
+    gap: 14px;
+  }
+  .brand-motto-text {
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+  }
+}
+
 @media (max-width: 900px) {
   .story-grid {
     grid-template-columns: minmax(0, 1fr);
